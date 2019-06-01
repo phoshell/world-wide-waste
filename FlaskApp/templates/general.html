@@ -1,0 +1,204 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- Load d3.js -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script> -->
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://d3js.org/d3-selection-multi.v0.4.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/static/css/margins.css">
+    </head>
+
+    <body>
+    <!-- NAV BAR BRAND + HAMBURGER MENU -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar navbar-brand" href="/">WORLD WIDE WASTE<img src="https://media.giphy.com/media/ygwYlZwzQndqLiNqQ6/giphy.gif" height="50" width="50"></a>
+            </div>
+            <!-- NAV BAR TABS & DROPDOWN MENU -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">Plots<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <!-- <li><a href="viz-allwaste.html">General Waste Per Country</a></li> -->
+                            <li><a href="/epa">USA Waste Management</a></li>
+                            <!-- <li><a href="viz-projection.html">2025 Global Waste Projection</a></li> -->
+                        </ul>
+                    </li>
+                    <li><a href="https://docs.google.com/presentation/d/1UjMPpoLMxP9ZjziSIWj0MYtPeGVlaCSyobzavtmKik0/edit?usp=sharing">About</a></li>
+                    <li><a href="/data">Data</a></li>
+                </ul>
+            </div>
+    </nav>
+        <!-- TIME TO VIZ -->
+        <div id="my_dataviz"></div>
+        <!-- A bit of CSS: change stroke color of circle on hover -->
+        <style>
+        body {
+          background-color: #000000;
+        }
+        .bubbles:hover {
+          stroke: #f45641;
+        }
+        </style>
+
+    <script>
+    var margin = {top: 20, right: 100, bottom: 30, left: 100},
+        width = 1000 - margin.left - margin.right,
+        height = 600 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+
+    
+    console.log("GENERAL POPULATION WASTE PLOT.js");
+
+    //Read the data
+    d3.json("https://api.myjson.com/bins/whz27", function(data) {
+      console.log(data);
+      // Add X axis
+      var x = d3.scaleLinear()
+        .domain([500, 275000000])
+        .range([ 0, width ]);
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+      // Add Y axis
+      var y = d3.scaleLinear()
+        .domain([1000, 300000000])
+        .range([ height, 0]);
+      svg.append("g")
+        .call(d3.axisLeft(y));
+
+      // Add a scale for bubble size
+      var z = d3.scaleLinear()
+        .domain([1000, 300000000])
+        .range([ 4, 40]);
+
+      // Add a scale for bubble color
+      var myColor = d3.scaleOrdinal()
+        .domain(["LIC", "LMC", "UMC", "HIC"])
+        .range(["#40d1ac", "#4050d1", "#d14064", "#f45641"]);
+
+      // -1- Create a tooltip div that is hidden by default:
+      var tooltip = d3.select("#my_dataviz")
+        .append("div")
+          .style("opacity", 1)
+          .attr("class", "tooltip")
+          .style("background-color", "#4050d1")
+          .style("border-radius", "5px")
+          .style("padding", "4px")
+          .style("color", "white")
+
+      // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
+      var showTooltip = function(d) {
+        tooltip
+          .transition()
+          .duration(200)
+        tooltip
+          .style("opacity", 1)
+          .style("text-anchor", "middle")
+          .html("Country: " + d.country_x + " | Waste Per Day: " + d.value + " kg | Population: " + d.coastal_population)
+          .style("left", (d3.mouse(this)[0]+20) + "px")
+          .style("top", (d3.mouse(this)[1]+20) + "px")
+      }
+      var moveTooltip = function(d) {
+        tooltip
+          .style("left", (d3.mouse(this)[0]+20) + "px")
+          .style("top", (d3.mouse(this)[1]+20) + "px")
+      }
+      var hideTooltip = function(d) {
+        tooltip
+          .transition()
+          .duration(200)
+          .style("opacity", 1)
+      }
+
+      // ≤A X I S L A B E L S≥
+      // Add the x Axis
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+      // text label for the x axis
+      svg.append("text")             
+        .attr("transform", `translate(${width / 2}, ${height + margin.top + 37})`)
+        .style("text-anchor", "middle")
+        .style("border-radius", "5px")
+        .style("padding", "4px")
+        .text("Population");
+
+      // text label for the y axis
+      svg.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 0 - margin.left)
+          .attr("x",0 - (height / 2))
+          .attr("dy", "1em")
+          .style("text-anchor", "middle")
+          .text("Waste Generation Per Day (kg)");
+
+      // Y AXIS STYLING
+      var axis = svg.append("g")
+        .call(d3.axisLeft(y));
+
+      axis.selectAll("line")
+        .style("stroke", "purple")
+
+      axis.selectAll("path")
+        .style("stroke", "green")
+
+      axis.selectAll("text")
+        .style("stroke", "#ffffff")
+
+      // X AXIS STYLING
+      var axis = svg.append("g")
+        .call(d3.axisBottom(x));
+
+      axis.selectAll("line")
+        .style("stroke", "purple")
+
+      axis.selectAll("path")
+        .style("stroke", "green")
+
+      axis.selectAll("text")
+        .style("stroke", "#ffffff")
+
+      // Add dots
+      svg.append('g')
+        .selectAll("dot")
+        .data(data)
+        .enter()
+        .append("circle")
+          .attr("class", "bubbles")
+          .attr("opacity", "0.5")
+          .attr("cx", function (d) { return x(d.coastal_population); } )
+          .attr("cy", function (d) { return y(d.value); } )
+          .attr("r", function (d) { return z(d.coastal_population); } )
+          .style("fill", function (d) { return myColor(d.economic_status); } )
+        // -3- Trigger the functions
+        .on("mouseover", showTooltip )
+        .on("mousemove", moveTooltip )
+        .on("mouseleave", hideTooltip )
+
+      });
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EPA Generated Waste</title>
+
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- CSS STYLING LINKS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/margins.css">
+
+  <style>
+      body {
+        background-color: #000000;
+      }
+  </style>
+</head>
+<body>
+    <!-- NAV BAR BRAND + HAMBURGER MENU -->
+    <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar navbar-brand" href="/">WORLD WIDE WASTE<img src="https://media.giphy.com/media/DuJmk1yRUd1Di/giphy.gif" height="50" width="50"></a>
+                </div>
+    
+                <!-- NAV BAR TABS & DROPDOWN MENU -->
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">Plots<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <!-- <li><a href="viz-allwaste.html">General Waste Per Country</a></li> -->
+                                <li><a href="/epa">USA Waste Management</a></li>
+                                <!-- <li><a href="viz-projection.html">2025 Global Waste Projection</a></li> -->
+                            </ul>
+                        </li>
+                        <li><a href="https://docs.google.com/presentation/d/1UjMPpoLMxP9ZjziSIWj0MYtPeGVlaCSyobzavtmKik0/edit?usp=sharing">About</a></li>
+                        <li><a href="/data">Data</a></li>
+                    </ul>
+                </div>
+        </nav>
+        <!-- PLOTING PLOTS -->
+        <div id="chart"></div>
+        <div id="chart2"></div>
+        <div id="chart3"></div>
+        <div id="chart4"></div>
+        <!-- <script src="../static/js/data.js"></script> -->
+        <script src="{{ url_for('static', filename='js/predictionsChart.js') }}"></script>
+
+</body>
+</html>

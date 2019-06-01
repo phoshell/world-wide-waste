@@ -1,0 +1,3307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EPA Generated Waste</title>
+
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- CSS STYLING LINKS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/margins.css">
+
+  <style>
+      body {
+        background-color: #000000;
+      }
+  </style>
+</head>
+<body>
+    <!-- NAV BAR BRAND + HAMBURGER MENU -->
+    <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar navbar-brand" href="/">WORLD WIDE WASTE<img src="https://media.giphy.com/media/l4pT8l4oqdL5c7se4/giphy.gif" height="50" width="20"></a>
+                </div>
+    
+                <!-- NAV BAR TABS & DROPDOWN MENU -->
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">Plots<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <!-- <li><a href="viz-allwaste.html">General Waste Per Country</a></li> -->
+                                <li><a href="epa.html">USA Waste History</a></li>
+                                <!-- <li><a href="viz-projection.html">2025 Global Waste Projection</a></li> -->
+                            </ul>
+                        </li>
+                        <li><a href="https://docs.google.com/presentation/d/1UjMPpoLMxP9ZjziSIWj0MYtPeGVlaCSyobzavtmKik0/edit?usp=sharing">About</a></li>
+                        <li><a href="/data">Data</a></li>
+                    </ul>
+                </div>
+        </nav>
+        <h2>Global Mismanaged Wastes</h2>
+        <!-- PLOTING PLOTS -->
+        <table class="table table-bordered table-hover table-condensed">
+                <thead><tr><th title="Field #1">Country</th>
+                <th title="Field #2">Economic_status</th>
+                <th title="Field #3">Coastal_population</th>
+                <th title="Field #4">Waste_generation_rate_kg/person/day_All_Waste</th>
+                <th title="Field #5">%_Plastic_in_waste_stream</th>
+                <th title="Field #6">%_Inadequately_managed_waste</th>
+                <th title="Field #7">%_Littered_waste</th>
+                <th title="Field #8">Waste_generation_kg/day</th>
+                <th title="Field #9">Plastic_waste_generation_kg/day</th>
+                <th title="Field #10">Inadequately_managed_plastic_waste_kg/day</th>
+                <th title="Field #11">Plastic_waste_littered_[kg/day]</th>
+                <th title="Field #12">Mismanaged_plastic_waste_kg/person/day</th>
+                <th title="Field #13">Mismanaged_plastic_waste_in_2010_tonnes</th>
+                <th title="Field #14">Mismanaged_plastic_waste_in_2025_tonnes</th>
+                </tr></thead>
+                <tbody><tr>
+                <td>Albania</td>
+                <td>LMI</td>
+                <td align="right">2530533.00</td>
+                <td align="right">0.77</td>
+                <td align="right">9.00</td>
+                <td align="right">45.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1948510.00</td>
+                <td align="right">174392.00</td>
+                <td align="right">77897.00</td>
+                <td align="right">3488.00</td>
+                <td>0.03</td>
+                <td align="right">29705.00</td>
+                <td align="right">63051.00</td>
+                </tr>
+                <tr>
+                <td>Algeria</td>
+                <td>UMI</td>
+                <td align="right">16556580.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">58.00</td>
+                <td align="right">2.00</td>
+                <td align="right">19867896.00</td>
+                <td align="right">2374214.00</td>
+                <td align="right">1378693.00</td>
+                <td align="right">47484.00</td>
+                <td>0.09</td>
+                <td align="right">520555.00</td>
+                <td align="right">1017444.00</td>
+                </tr>
+                <tr>
+                <td>Angola</td>
+                <td>LMI</td>
+                <td align="right">3790041.00</td>
+                <td align="right">0.48</td>
+                <td align="right">13.00</td>
+                <td align="right">71.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1819220.00</td>
+                <td align="right">235589.00</td>
+                <td align="right">166597.00</td>
+                <td align="right">4712.00</td>
+                <td>0.05</td>
+                <td align="right">62528.00</td>
+                <td align="right">136770.00</td>
+                </tr>
+                <tr>
+                <td>Anguilla</td>
+                <td>HIC</td>
+                <td align="right">14561.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">2.00</td>
+                <td align="right">2.00</td>
+                <td align="right">30578.00</td>
+                <td align="right">3654.00</td>
+                <td align="right">68.00</td>
+                <td align="right">73.00</td>
+                <td>0.01</td>
+                <td align="right">52.00</td>
+                <td align="right">73.00</td>
+                </tr>
+                <tr>
+                <td>Antigua &amp; Barbuda</td>
+                <td>HIC</td>
+                <td align="right">66843.00</td>
+                <td align="right">5.50</td>
+                <td align="right">12.00</td>
+                <td align="right">6.00</td>
+                <td align="right">2.00</td>
+                <td align="right">367637.00</td>
+                <td align="right">43933.00</td>
+                <td align="right">2555.00</td>
+                <td align="right">879.00</td>
+                <td>0.05</td>
+                <td align="right">1253.00</td>
+                <td align="right">1385.00</td>
+                </tr>
+                <tr>
+                <td>Argentina</td>
+                <td>UMI</td>
+                <td align="right">16449245.00</td>
+                <td align="right">1.22</td>
+                <td align="right">15.00</td>
+                <td align="right">12.00</td>
+                <td align="right">2.00</td>
+                <td align="right">20068079.00</td>
+                <td align="right">3000178.00</td>
+                <td align="right">372261.00</td>
+                <td align="right">60004.00</td>
+                <td>0.03</td>
+                <td align="right">157777.00</td>
+                <td align="right">320197.00</td>
+                </tr>
+                <tr>
+                <td>Aruba</td>
+                <td>HIC</td>
+                <td align="right">137910.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">1.00</td>
+                <td align="right">2.00</td>
+                <td align="right">289611.00</td>
+                <td align="right">34609.00</td>
+                <td align="right">326.00</td>
+                <td align="right">692.00</td>
+                <td>0.01</td>
+                <td align="right">372.00</td>
+                <td align="right">476.00</td>
+                </tr>
+                <tr>
+                <td>Australia</td>
+                <td>HIC</td>
+                <td align="right">17235954.00</td>
+                <td align="right">2.23</td>
+                <td align="right">5.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">38436177.00</td>
+                <td align="right">1902591.00</td>
+                <td align="right">0.00</td>
+                <td align="right">38052.00</td>
+                <td>0.00</td>
+                <td align="right">13889.00</td>
+                <td align="right">24653.00</td>
+                </tr>
+                <tr>
+                <td>Bahamas</td>
+                <td>HIC</td>
+                <td align="right">341145.00</td>
+                <td align="right">3.25</td>
+                <td align="right">12.00</td>
+                <td align="right">1.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1108721.00</td>
+                <td align="right">132492.00</td>
+                <td align="right">1002.00</td>
+                <td align="right">2650.00</td>
+                <td>0.01</td>
+                <td align="right">1333.00</td>
+                <td align="right">1718.00</td>
+                </tr>
+                <tr>
+                <td>Bahrain</td>
+                <td>HIC</td>
+                <td align="right">743574.00</td>
+                <td align="right">1.10</td>
+                <td align="right">12.00</td>
+                <td align="right">10.00</td>
+                <td align="right">2.00</td>
+                <td align="right">817931.00</td>
+                <td align="right">97743.00</td>
+                <td align="right">10033.00</td>
+                <td align="right">1955.00</td>
+                <td>0.02</td>
+                <td align="right">4376.00</td>
+                <td align="right">9915.00</td>
+                </tr>
+                <tr>
+                <td>Bangladesh</td>
+                <td>LI</td>
+                <td align="right">70874124.00</td>
+                <td align="right">0.43</td>
+                <td align="right">8.00</td>
+                <td align="right">87.00</td>
+                <td align="right">2.00</td>
+                <td align="right">30475873.00</td>
+                <td align="right">2422832.00</td>
+                <td align="right">2108603.00</td>
+                <td align="right">48457.00</td>
+                <td>0.03</td>
+                <td align="right">787327.00</td>
+                <td align="right">2210230.00</td>
+                </tr>
+                <tr>
+                <td>Barbados</td>
+                <td>HIC</td>
+                <td align="right">276784.00</td>
+                <td align="right">4.75</td>
+                <td align="right">12.00</td>
+                <td align="right">4.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1314724.00</td>
+                <td align="right">157110.00</td>
+                <td align="right">6400.00</td>
+                <td align="right">3142.00</td>
+                <td>0.03</td>
+                <td align="right">3483.00</td>
+                <td align="right">3719.00</td>
+                </tr>
+                <tr>
+                <td>Belgium</td>
+                <td>HIC</td>
+                <td align="right">4747957.00</td>
+                <td align="right">1.33</td>
+                <td align="right">6.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">6314783.00</td>
+                <td align="right">375730.00</td>
+                <td align="right">0.00</td>
+                <td align="right">7515.00</td>
+                <td>0.00</td>
+                <td align="right">2743.00</td>
+                <td align="right">5739.00</td>
+                </tr>
+                <tr>
+                <td>Belize</td>
+                <td>UMI</td>
+                <td align="right">202429.00</td>
+                <td align="right">2.87</td>
+                <td align="right">6.00</td>
+                <td align="right">29.00</td>
+                <td align="right">2.00</td>
+                <td align="right">580971.00</td>
+                <td align="right">34568.00</td>
+                <td align="right">9972.00</td>
+                <td align="right">691.00</td>
+                <td>0.05</td>
+                <td align="right">3892.00</td>
+                <td align="right">6042.00</td>
+                </tr>
+                <tr>
+                <td>Benin</td>
+                <td>LI</td>
+                <td align="right">3235418.00</td>
+                <td align="right">0.54</td>
+                <td align="right">8.00</td>
+                <td align="right">83.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1747126.00</td>
+                <td align="right">138896.00</td>
+                <td align="right">115073.00</td>
+                <td align="right">2778.00</td>
+                <td>0.04</td>
+                <td align="right">43015.00</td>
+                <td align="right">119467.00</td>
+                </tr>
+                <tr>
+                <td>Bermuda</td>
+                <td>HIC</td>
+                <td align="right">66966.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">140629.00</td>
+                <td align="right">16805.00</td>
+                <td align="right">0.00</td>
+                <td align="right">336.00</td>
+                <td>0.01</td>
+                <td align="right">123.00</td>
+                <td align="right">173.00</td>
+                </tr>
+                <tr>
+                <td>Bosnia and Herzegovina</td>
+                <td>UMI</td>
+                <td align="right">585582.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">40.00</td>
+                <td align="right">2.00</td>
+                <td align="right">702698.00</td>
+                <td align="right">83972.00</td>
+                <td align="right">33813.00</td>
+                <td align="right">1679.00</td>
+                <td>0.06</td>
+                <td align="right">12955.00</td>
+                <td align="right">20201.00</td>
+                </tr>
+                <tr>
+                <td>Brazil</td>
+                <td>UMI</td>
+                <td align="right">74696771.00</td>
+                <td align="right">1.03</td>
+                <td align="right">16.00</td>
+                <td align="right">9.00</td>
+                <td align="right">2.00</td>
+                <td align="right">76937674.00</td>
+                <td align="right">12271559.00</td>
+                <td align="right">1046087.00</td>
+                <td align="right">245431.00</td>
+                <td>0.02</td>
+                <td align="right">471404.00</td>
+                <td align="right">954198.00</td>
+                </tr>
+                <tr>
+                <td>British Virgin Islands</td>
+                <td>HIC</td>
+                <td align="right">29674.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">62315.00</td>
+                <td align="right">7447.00</td>
+                <td align="right">3.00</td>
+                <td align="right">149.00</td>
+                <td>0.01</td>
+                <td align="right">55.00</td>
+                <td align="right">78.00</td>
+                </tr>
+                <tr>
+                <td>Brunei</td>
+                <td>HIC</td>
+                <td align="right">359871.00</td>
+                <td align="right">0.87</td>
+                <td align="right">3.00</td>
+                <td align="right">1.00</td>
+                <td align="right">2.00</td>
+                <td align="right">313088.00</td>
+                <td align="right">9236.00</td>
+                <td align="right">71.00</td>
+                <td align="right">185.00</td>
+                <td>0.00</td>
+                <td align="right">93.00</td>
+                <td align="right">341.00</td>
+                </tr>
+                <tr>
+                <td>Bulgaria</td>
+                <td>UMI</td>
+                <td align="right">1002695.00</td>
+                <td align="right">1.28</td>
+                <td align="right">12.00</td>
+                <td align="right">31.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1283450.00</td>
+                <td align="right">153372.00</td>
+                <td align="right">48273.00</td>
+                <td align="right">3067.00</td>
+                <td>0.05</td>
+                <td align="right">18739.00</td>
+                <td align="right">25770.00</td>
+                </tr>
+                <tr>
+                <td>Burma/Myanmar</td>
+                <td>LI</td>
+                <td align="right">18988522.00</td>
+                <td align="right">0.44</td>
+                <td align="right">17.00</td>
+                <td align="right">87.00</td>
+                <td align="right">2.00</td>
+                <td align="right">8354950.00</td>
+                <td align="right">1416164.00</td>
+                <td align="right">1227208.00</td>
+                <td align="right">28323.00</td>
+                <td>0.07</td>
+                <td align="right">458269.00</td>
+                <td align="right">1149267.00</td>
+                </tr>
+                <tr>
+                <td>Cambodia</td>
+                <td>LI</td>
+                <td align="right">1391254.00</td>
+                <td align="right">0.60</td>
+                <td align="right">11.00</td>
+                <td align="right">87.00</td>
+                <td align="right">2.00</td>
+                <td align="right">834752.00</td>
+                <td align="right">91405.00</td>
+                <td align="right">79502.00</td>
+                <td align="right">1828.00</td>
+                <td>0.06</td>
+                <td align="right">29686.00</td>
+                <td align="right">62834.00</td>
+                </tr>
+                <tr>
+                <td>Cameroon</td>
+                <td>LMI</td>
+                <td align="right">1986723.00</td>
+                <td align="right">0.77</td>
+                <td align="right">6.00</td>
+                <td align="right">81.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1529777.00</td>
+                <td align="right">91022.00</td>
+                <td align="right">74107.00</td>
+                <td align="right">1820.00</td>
+                <td>0.04</td>
+                <td align="right">27713.00</td>
+                <td align="right">71863.00</td>
+                </tr>
+                <tr>
+                <td>Canada</td>
+                <td>HIC</td>
+                <td align="right">11846863.00</td>
+                <td align="right">2.33</td>
+                <td align="right">4.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">27603191.00</td>
+                <td align="right">1090326.00</td>
+                <td align="right">0.00</td>
+                <td align="right">21807.00</td>
+                <td>0.00</td>
+                <td align="right">7959.00</td>
+                <td align="right">14668.00</td>
+                </tr>
+                <tr>
+                <td>Cape Verde</td>
+                <td>LMI</td>
+                <td align="right">522245.00</td>
+                <td align="right">0.50</td>
+                <td align="right">13.00</td>
+                <td align="right">74.00</td>
+                <td align="right">2.00</td>
+                <td align="right">261123.00</td>
+                <td align="right">33815.00</td>
+                <td align="right">24933.00</td>
+                <td align="right">676.00</td>
+                <td>0.05</td>
+                <td align="right">9347.00</td>
+                <td align="right">18475.00</td>
+                </tr>
+                <tr>
+                <td>Cayman Islands</td>
+                <td>HIC</td>
+                <td align="right">51864.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">108914.00</td>
+                <td align="right">13015.00</td>
+                <td align="right">0.00</td>
+                <td align="right">260.00</td>
+                <td>0.01</td>
+                <td align="right">95.00</td>
+                <td align="right">134.00</td>
+                </tr>
+                <tr>
+                <td>Channel Islands</td>
+                <td>HIC</td>
+                <td align="right">153352.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">322039.00</td>
+                <td align="right">38484.00</td>
+                <td align="right">0.00</td>
+                <td align="right">770.00</td>
+                <td>0.01</td>
+                <td align="right">281.00</td>
+                <td align="right">355.00</td>
+                </tr>
+                <tr>
+                <td>Chile</td>
+                <td>UMI</td>
+                <td align="right">5621550.00</td>
+                <td align="right">1.08</td>
+                <td align="right">11.00</td>
+                <td align="right">7.00</td>
+                <td align="right">2.00</td>
+                <td align="right">6071274.00</td>
+                <td align="right">664805.00</td>
+                <td align="right">46304.00</td>
+                <td align="right">13296.00</td>
+                <td>0.01</td>
+                <td align="right">21754.00</td>
+                <td align="right">42562.00</td>
+                </tr>
+                <tr>
+                <td>China</td>
+                <td>UMI</td>
+                <td align="right">262892387.00</td>
+                <td align="right">1.10</td>
+                <td align="right">11.00</td>
+                <td align="right">74.00</td>
+                <td align="right">2.00</td>
+                <td align="right">289181626.00</td>
+                <td align="right">31665388.00</td>
+                <td align="right">23530300.00</td>
+                <td align="right">633308.00</td>
+                <td>0.09</td>
+                <td align="right">8819717.00</td>
+                <td align="right">17814777.00</td>
+                </tr>
+                <tr>
+                <td>Christmas Island</td>
+                <td>HIC</td>
+                <td align="right">1402.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">2944.00</td>
+                <td align="right">352.00</td>
+                <td align="right">0.00</td>
+                <td align="right">7.00</td>
+                <td>0.01</td>
+                <td align="right">3.00</td>
+                <td align="right">4.00</td>
+                </tr>
+                <tr>
+                <td>Cocos Islands</td>
+                <td>HIC</td>
+                <td align="right">596.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1252.00</td>
+                <td align="right">150.00</td>
+                <td align="right">0.00</td>
+                <td align="right">3.00</td>
+                <td>0.01</td>
+                <td align="right">1.00</td>
+                <td align="right">2.00</td>
+                </tr>
+                <tr>
+                <td>Colombia</td>
+                <td>UMI</td>
+                <td align="right">7498563.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">21.00</td>
+                <td align="right">2.00</td>
+                <td align="right">8998276.00</td>
+                <td align="right">1075294.00</td>
+                <td align="right">231024.00</td>
+                <td align="right">21506.00</td>
+                <td>0.03</td>
+                <td align="right">92173.00</td>
+                <td align="right">179973.00</td>
+                </tr>
+                <tr>
+                <td>Comoros</td>
+                <td>LI</td>
+                <td align="right">938595.00</td>
+                <td align="right">2.23</td>
+                <td align="right">9.00</td>
+                <td align="right">83.00</td>
+                <td align="right">2.00</td>
+                <td align="right">2093067.00</td>
+                <td align="right">187329.00</td>
+                <td align="right">155246.00</td>
+                <td align="right">3747.00</td>
+                <td>0.17</td>
+                <td align="right">58032.00</td>
+                <td align="right">100870.00</td>
+                </tr>
+                <tr>
+                <td>Congo Rep of</td>
+                <td>LMI</td>
+                <td align="right">847807.00</td>
+                <td align="right">0.53</td>
+                <td align="right">13.00</td>
+                <td align="right">77.00</td>
+                <td align="right">2.00</td>
+                <td align="right">449338.00</td>
+                <td align="right">58189.00</td>
+                <td align="right">44769.00</td>
+                <td align="right">1164.00</td>
+                <td>0.05</td>
+                <td align="right">16766.00</td>
+                <td align="right">39853.00</td>
+                </tr>
+                <tr>
+                <td>Congo, Dem rep. of</td>
+                <td>LI</td>
+                <td align="right">1076056.00</td>
+                <td align="right">0.50</td>
+                <td align="right">9.00</td>
+                <td align="right">85.00</td>
+                <td align="right">2.00</td>
+                <td align="right">538028.00</td>
+                <td align="right">48154.00</td>
+                <td align="right">40703.00</td>
+                <td align="right">963.00</td>
+                <td>0.04</td>
+                <td align="right">15208.00</td>
+                <td align="right">43480.00</td>
+                </tr>
+                <tr>
+                <td>Cook Islands</td>
+                <td>UMI</td>
+                <td align="right">20934.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">36.00</td>
+                <td align="right">2.00</td>
+                <td align="right">25121.00</td>
+                <td align="right">3002.00</td>
+                <td align="right">1079.00</td>
+                <td align="right">60.00</td>
+                <td>0.05</td>
+                <td align="right">416.00</td>
+                <td align="right">784.00</td>
+                </tr>
+                <tr>
+                <td>Costa Rica</td>
+                <td>UMI</td>
+                <td align="right">2479298.00</td>
+                <td align="right">1.36</td>
+                <td align="right">19.00</td>
+                <td align="right">16.00</td>
+                <td align="right">2.00</td>
+                <td align="right">3371845.00</td>
+                <td align="right">638965.00</td>
+                <td align="right">102536.00</td>
+                <td align="right">12779.00</td>
+                <td>0.05</td>
+                <td align="right">42090.00</td>
+                <td align="right">75895.00</td>
+                </tr>
+                <tr>
+                <td>Cote d&#39;Ivoire</td>
+                <td>LMI</td>
+                <td align="right">6230583.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">82.00</td>
+                <td align="right">2.00</td>
+                <td align="right">4922161.00</td>
+                <td align="right">637420.00</td>
+                <td align="right">520288.00</td>
+                <td align="right">12748.00</td>
+                <td>0.09</td>
+                <td align="right">194558.00</td>
+                <td align="right">537163.00</td>
+                </tr>
+                <tr>
+                <td>Croatia</td>
+                <td>HIC</td>
+                <td align="right">1602782.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">9.00</td>
+                <td align="right">2.00</td>
+                <td align="right">3365842.00</td>
+                <td align="right">402218.00</td>
+                <td align="right">37053.00</td>
+                <td align="right">8044.00</td>
+                <td>0.03</td>
+                <td align="right">16461.00</td>
+                <td align="right">19593.00</td>
+                </tr>
+                <tr>
+                <td>Cuba</td>
+                <td>UMI</td>
+                <td align="right">11333471.00</td>
+                <td align="right">0.81</td>
+                <td align="right">11.00</td>
+                <td align="right">23.00</td>
+                <td align="right">2.00</td>
+                <td align="right">9180112.00</td>
+                <td align="right">1005222.00</td>
+                <td align="right">228196.00</td>
+                <td align="right">20104.00</td>
+                <td>0.02</td>
+                <td align="right">90630.00</td>
+                <td align="right">180454.00</td>
+                </tr>
+                <tr>
+                <td>Curacao</td>
+                <td>HIC</td>
+                <td align="right">143784.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">301946.00</td>
+                <td align="right">36083.00</td>
+                <td align="right">12.00</td>
+                <td align="right">722.00</td>
+                <td>0.01</td>
+                <td align="right">268.00</td>
+                <td align="right">378.00</td>
+                </tr>
+                <tr>
+                <td>Cyprus</td>
+                <td>HIC</td>
+                <td align="right">840556.00</td>
+                <td align="right">2.07</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1739951.00</td>
+                <td align="right">207924.00</td>
+                <td align="right">831.00</td>
+                <td align="right">4158.00</td>
+                <td>0.01</td>
+                <td align="right">1821.00</td>
+                <td align="right">2611.00</td>
+                </tr>
+                <tr>
+                <td>Denmark</td>
+                <td>HIC</td>
+                <td align="right">5376386.00</td>
+                <td align="right">2.34</td>
+                <td align="right">2.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">12580743.00</td>
+                <td align="right">245324.00</td>
+                <td align="right">0.00</td>
+                <td align="right">4906.00</td>
+                <td>0.00</td>
+                <td align="right">1791.00</td>
+                <td align="right">4233.00</td>
+                </tr>
+                <tr>
+                <td>Dhekelia</td>
+                <td>HIC</td>
+                <td align="right">15700.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">32970.00</td>
+                <td align="right">3940.00</td>
+                <td align="right">2.00</td>
+                <td align="right">79.00</td>
+                <td>0.01</td>
+                <td align="right">30.00</td>
+                <td align="right">42.00</td>
+                </tr>
+                <tr>
+                <td>Djibouti</td>
+                <td>LMI</td>
+                <td align="right">621744.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">73.00</td>
+                <td align="right">2.00</td>
+                <td align="right">491178.00</td>
+                <td align="right">63608.00</td>
+                <td align="right">46191.00</td>
+                <td align="right">1272.00</td>
+                <td>0.08</td>
+                <td align="right">17324.00</td>
+                <td align="right">45612.00</td>
+                </tr>
+                <tr>
+                <td>Dominica</td>
+                <td>UMI</td>
+                <td align="right">70138.00</td>
+                <td align="right">1.24</td>
+                <td align="right">12.00</td>
+                <td align="right">19.00</td>
+                <td align="right">2.00</td>
+                <td align="right">86971.00</td>
+                <td align="right">10393.00</td>
+                <td align="right">1938.00</td>
+                <td align="right">208.00</td>
+                <td>0.03</td>
+                <td align="right">783.00</td>
+                <td align="right">1428.00</td>
+                </tr>
+                <tr>
+                <td>Dominican Republic</td>
+                <td>UMI</td>
+                <td align="right">8232586.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">25.00</td>
+                <td align="right">2.00</td>
+                <td align="right">9879103.00</td>
+                <td align="right">1180553.00</td>
+                <td align="right">300295.00</td>
+                <td align="right">23611.00</td>
+                <td>0.04</td>
+                <td align="right">118226.00</td>
+                <td align="right">228671.00</td>
+                </tr>
+                <tr>
+                <td>East Timor</td>
+                <td>LMI</td>
+                <td align="right">668749.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">81.00</td>
+                <td align="right">2.00</td>
+                <td align="right">528312.00</td>
+                <td align="right">68416.00</td>
+                <td align="right">55316.00</td>
+                <td align="right">1368.00</td>
+                <td>0.09</td>
+                <td align="right">20690.00</td>
+                <td align="right">64205.00</td>
+                </tr>
+                <tr>
+                <td>Ecuador</td>
+                <td>LMI</td>
+                <td align="right">6400048.00</td>
+                <td align="right">1.13</td>
+                <td align="right">13.00</td>
+                <td align="right">30.00</td>
+                <td align="right">2.00</td>
+                <td align="right">7232054.00</td>
+                <td align="right">936551.00</td>
+                <td align="right">280948.00</td>
+                <td align="right">18731.00</td>
+                <td>0.05</td>
+                <td align="right">109383.00</td>
+                <td align="right">211021.00</td>
+                </tr>
+                <tr>
+                <td>Egypt</td>
+                <td>LMI</td>
+                <td align="right">21750943.00</td>
+                <td align="right">1.37</td>
+                <td align="right">13.00</td>
+                <td align="right">67.00</td>
+                <td align="right">2.00</td>
+                <td align="right">29798792.00</td>
+                <td align="right">3858944.00</td>
+                <td align="right">2572170.00</td>
+                <td align="right">77179.00</td>
+                <td>0.12</td>
+                <td align="right">967012.00</td>
+                <td align="right">1937428.00</td>
+                </tr>
+                <tr>
+                <td>El Salvador</td>
+                <td>LMI</td>
+                <td align="right">6410726.00</td>
+                <td align="right">1.13</td>
+                <td align="right">13.00</td>
+                <td align="right">33.00</td>
+                <td align="right">2.00</td>
+                <td align="right">7244120.00</td>
+                <td align="right">938114.00</td>
+                <td align="right">306531.00</td>
+                <td align="right">18762.00</td>
+                <td>0.05</td>
+                <td align="right">118732.00</td>
+                <td align="right">226860.00</td>
+                </tr>
+                <tr>
+                <td>Equatorial Guinea</td>
+                <td>UMI</td>
+                <td align="right">351600.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">30.00</td>
+                <td align="right">2.00</td>
+                <td align="right">421920.00</td>
+                <td align="right">50419.00</td>
+                <td align="right">15367.00</td>
+                <td align="right">1008.00</td>
+                <td>0.05</td>
+                <td align="right">5977.00</td>
+                <td align="right">14124.00</td>
+                </tr>
+                <tr>
+                <td>Eritrea</td>
+                <td>LI</td>
+                <td align="right">1266222.00</td>
+                <td align="right">0.50</td>
+                <td align="right">9.00</td>
+                <td align="right">77.00</td>
+                <td align="right">2.00</td>
+                <td align="right">633111.00</td>
+                <td align="right">56663.00</td>
+                <td align="right">43411.00</td>
+                <td align="right">1133.00</td>
+                <td>0.04</td>
+                <td align="right">16259.00</td>
+                <td align="right">43484.00</td>
+                </tr>
+                <tr>
+                <td>Estonia</td>
+                <td>HIC</td>
+                <td align="right">878021.00</td>
+                <td align="right">1.47</td>
+                <td align="right">12.00</td>
+                <td align="right">9.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1290691.00</td>
+                <td align="right">154238.00</td>
+                <td align="right">13296.00</td>
+                <td align="right">3085.00</td>
+                <td>0.02</td>
+                <td align="right">5979.00</td>
+                <td align="right">8367.00</td>
+                </tr>
+                <tr>
+                <td>Falkland Islands</td>
+                <td>HIC</td>
+                <td align="right">2602.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">5464.00</td>
+                <td align="right">653.00</td>
+                <td align="right">0.00</td>
+                <td align="right">13.00</td>
+                <td>0.01</td>
+                <td align="right">5.00</td>
+                <td align="right">7.00</td>
+                </tr>
+                <tr>
+                <td>Faroe Islands</td>
+                <td>HIC</td>
+                <td align="right">50554.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">106163.00</td>
+                <td align="right">12687.00</td>
+                <td align="right">0.00</td>
+                <td align="right">254.00</td>
+                <td>0.01</td>
+                <td align="right">93.00</td>
+                <td align="right">131.00</td>
+                </tr>
+                <tr>
+                <td>Fiji</td>
+                <td>UMI</td>
+                <td align="right">896145.00</td>
+                <td align="right">2.10</td>
+                <td align="right">9.00</td>
+                <td align="right">78.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1881905.00</td>
+                <td align="right">168430.00</td>
+                <td align="right">131582.00</td>
+                <td align="right">3369.00</td>
+                <td>0.15</td>
+                <td align="right">49257.00</td>
+                <td align="right">70995.00</td>
+                </tr>
+                <tr>
+                <td>Finland</td>
+                <td>HIC</td>
+                <td align="right">2927674.00</td>
+                <td align="right">2.13</td>
+                <td align="right">11.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">6235946.00</td>
+                <td align="right">682836.00</td>
+                <td align="right">0.00</td>
+                <td align="right">13657.00</td>
+                <td>0.01</td>
+                <td align="right">4985.00</td>
+                <td align="right">6422.00</td>
+                </tr>
+                <tr>
+                <td>France</td>
+                <td>HIC</td>
+                <td align="right">17287280.00</td>
+                <td align="right">1.92</td>
+                <td align="right">10.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">33191578.00</td>
+                <td align="right">3302562.00</td>
+                <td align="right">0.00</td>
+                <td align="right">66051.00</td>
+                <td>0.00</td>
+                <td align="right">24109.00</td>
+                <td align="right">34671.00</td>
+                </tr>
+                <tr>
+                <td>French Guiana</td>
+                <td>UMI</td>
+                <td align="right">167631.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">25.00</td>
+                <td align="right">2.00</td>
+                <td align="right">201157.00</td>
+                <td align="right">24038.00</td>
+                <td align="right">5986.00</td>
+                <td align="right">481.00</td>
+                <td>0.04</td>
+                <td align="right">2360.00</td>
+                <td align="right">5577.00</td>
+                </tr>
+                <tr>
+                <td>French Polynesia</td>
+                <td>HIC</td>
+                <td align="right">270618.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">3.00</td>
+                <td align="right">2.00</td>
+                <td align="right">568298.00</td>
+                <td align="right">67912.00</td>
+                <td align="right">2165.00</td>
+                <td align="right">1358.00</td>
+                <td>0.01</td>
+                <td align="right">1286.00</td>
+                <td align="right">1824.00</td>
+                </tr>
+                <tr>
+                <td>Gabon</td>
+                <td>UMI</td>
+                <td align="right">862328.00</td>
+                <td align="right">0.45</td>
+                <td align="right">12.00</td>
+                <td align="right">34.00</td>
+                <td align="right">2.00</td>
+                <td align="right">388048.00</td>
+                <td align="right">46372.00</td>
+                <td align="right">15750.00</td>
+                <td align="right">927.00</td>
+                <td>0.02</td>
+                <td align="right">6087.00</td>
+                <td align="right">15446.00</td>
+                </tr>
+                <tr>
+                <td>Georgia</td>
+                <td>LMI</td>
+                <td align="right">1124249.00</td>
+                <td align="right">1.69</td>
+                <td align="right">4.00</td>
+                <td align="right">51.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1899981.00</td>
+                <td align="right">75049.00</td>
+                <td align="right">38149.00</td>
+                <td align="right">1501.00</td>
+                <td>0.04</td>
+                <td align="right">14472.00</td>
+                <td align="right">24532.00</td>
+                </tr>
+                <tr>
+                <td>Germany</td>
+                <td>HIC</td>
+                <td align="right">8837035.00</td>
+                <td align="right">2.11</td>
+                <td align="right">23.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">18646144.00</td>
+                <td align="right">4279290.00</td>
+                <td align="right">0.00</td>
+                <td align="right">85586.00</td>
+                <td>0.01</td>
+                <td align="right">31239.00</td>
+                <td align="right">33317.00</td>
+                </tr>
+                <tr>
+                <td>Ghana</td>
+                <td>LMI</td>
+                <td align="right">7727702.00</td>
+                <td align="right">0.79</td>
+                <td align="right">5.00</td>
+                <td align="right">81.00</td>
+                <td align="right">2.00</td>
+                <td align="right">6104885.00</td>
+                <td align="right">302192.00</td>
+                <td align="right">244835.00</td>
+                <td align="right">6044.00</td>
+                <td>0.03</td>
+                <td align="right">91571.00</td>
+                <td align="right">325116.00</td>
+                </tr>
+                <tr>
+                <td>Gibraltar</td>
+                <td>HIC</td>
+                <td align="right">33483.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">70314.00</td>
+                <td align="right">8403.00</td>
+                <td align="right">9.00</td>
+                <td align="right">168.00</td>
+                <td>0.01</td>
+                <td align="right">65.00</td>
+                <td align="right">92.00</td>
+                </tr>
+                <tr>
+                <td>Greece</td>
+                <td>HIC</td>
+                <td align="right">9794702.00</td>
+                <td align="right">2.00</td>
+                <td align="right">10.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">19589404.00</td>
+                <td align="right">1949146.00</td>
+                <td align="right">0.00</td>
+                <td align="right">38983.00</td>
+                <td>0.00</td>
+                <td align="right">14229.00</td>
+                <td align="right">18621.00</td>
+                </tr>
+                <tr>
+                <td>Greenland</td>
+                <td>HIC</td>
+                <td align="right">57068.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">119843.00</td>
+                <td align="right">14321.00</td>
+                <td align="right">0.00</td>
+                <td align="right">286.00</td>
+                <td>0.01</td>
+                <td align="right">105.00</td>
+                <td align="right">148.00</td>
+                </tr>
+                <tr>
+                <td>Grenada</td>
+                <td>UMI</td>
+                <td align="right">96121.00</td>
+                <td align="right">2.71</td>
+                <td align="right">12.00</td>
+                <td align="right">18.00</td>
+                <td align="right">2.00</td>
+                <td align="right">260488.00</td>
+                <td align="right">31128.00</td>
+                <td align="right">5536.00</td>
+                <td align="right">623.00</td>
+                <td>0.06</td>
+                <td align="right">2248.00</td>
+                <td align="right">2452.00</td>
+                </tr>
+                <tr>
+                <td>Guadeloupe</td>
+                <td>UMI</td>
+                <td align="right">466166.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">25.00</td>
+                <td align="right">2.00</td>
+                <td align="right">559399.00</td>
+                <td align="right">66848.00</td>
+                <td align="right">16646.00</td>
+                <td align="right">1337.00</td>
+                <td>0.04</td>
+                <td align="right">6564.00</td>
+                <td align="right">11502.00</td>
+                </tr>
+                <tr>
+                <td>Guam</td>
+                <td>HIC</td>
+                <td align="right">190809.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">400699.00</td>
+                <td align="right">47884.00</td>
+                <td align="right">118.00</td>
+                <td align="right">958.00</td>
+                <td>0.01</td>
+                <td align="right">393.00</td>
+                <td align="right">574.00</td>
+                </tr>
+                <tr>
+                <td>Guatemala</td>
+                <td>LMI</td>
+                <td align="right">2392442.00</td>
+                <td align="right">2.00</td>
+                <td align="right">14.00</td>
+                <td align="right">36.00</td>
+                <td align="right">2.00</td>
+                <td align="right">4784884.00</td>
+                <td align="right">667491.00</td>
+                <td align="right">237508.00</td>
+                <td align="right">13350.00</td>
+                <td>0.11</td>
+                <td align="right">91563.00</td>
+                <td align="right">157698.00</td>
+                </tr>
+                <tr>
+                <td>Guernsey</td>
+                <td>HIC</td>
+                <td align="right">56289.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">118207.00</td>
+                <td align="right">14126.00</td>
+                <td align="right">0.00</td>
+                <td align="right">283.00</td>
+                <td>0.01</td>
+                <td align="right">103.00</td>
+                <td align="right">146.00</td>
+                </tr>
+                <tr>
+                <td>Guinea</td>
+                <td>LI</td>
+                <td align="right">1996496.00</td>
+                <td align="right">0.60</td>
+                <td align="right">5.00</td>
+                <td align="right">84.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1197898.00</td>
+                <td align="right">59296.00</td>
+                <td align="right">49538.00</td>
+                <td align="right">1186.00</td>
+                <td>0.03</td>
+                <td align="right">18514.00</td>
+                <td align="right">59889.00</td>
+                </tr>
+                <tr>
+                <td>Guinea-Bissau</td>
+                <td>LI</td>
+                <td align="right">1208106.00</td>
+                <td align="right">0.60</td>
+                <td align="right">9.00</td>
+                <td align="right">83.00</td>
+                <td align="right">2.00</td>
+                <td align="right">724864.00</td>
+                <td align="right">64875.00</td>
+                <td align="right">54156.00</td>
+                <td align="right">1298.00</td>
+                <td>0.05</td>
+                <td align="right">20240.00</td>
+                <td align="right">51947.00</td>
+                </tr>
+                <tr>
+                <td>Guyana</td>
+                <td>LMI</td>
+                <td align="right">513235.00</td>
+                <td align="right">5.33</td>
+                <td align="right">11.00</td>
+                <td align="right">36.00</td>
+                <td align="right">2.00</td>
+                <td align="right">2735543.00</td>
+                <td align="right">299542.00</td>
+                <td align="right">109084.00</td>
+                <td align="right">5991.00</td>
+                <td>0.22</td>
+                <td align="right">42002.00</td>
+                <td align="right">36103.00</td>
+                </tr>
+                <tr>
+                <td>Haiti</td>
+                <td>LI</td>
+                <td align="right">9155693.00</td>
+                <td align="right">1.00</td>
+                <td align="right">9.00</td>
+                <td align="right">47.00</td>
+                <td align="right">2.00</td>
+                <td align="right">9155693.00</td>
+                <td align="right">819435.00</td>
+                <td align="right">387416.00</td>
+                <td align="right">16389.00</td>
+                <td>0.04</td>
+                <td align="right">147389.00</td>
+                <td align="right">324178.00</td>
+                </tr>
+                <tr>
+                <td>Honduras</td>
+                <td>LMI</td>
+                <td align="right">3324144.00</td>
+                <td align="right">1.45</td>
+                <td align="right">13.00</td>
+                <td align="right">40.00</td>
+                <td align="right">2.00</td>
+                <td align="right">4820009.00</td>
+                <td align="right">624191.00</td>
+                <td align="right">249539.00</td>
+                <td align="right">12484.00</td>
+                <td>0.08</td>
+                <td align="right">95638.00</td>
+                <td align="right">189169.00</td>
+                </tr>
+                <tr>
+                <td>Hong Kong</td>
+                <td>HIC</td>
+                <td align="right">7573074.00</td>
+                <td align="right">1.99</td>
+                <td align="right">20.00</td>
+                <td align="right">1.00</td>
+                <td align="right">2.00</td>
+                <td align="right">15070417.00</td>
+                <td align="right">3006548.00</td>
+                <td align="right">17983.00</td>
+                <td align="right">60131.00</td>
+                <td>0.01</td>
+                <td align="right">28512.00</td>
+                <td align="right">37606.00</td>
+                </tr>
+                <tr>
+                <td>Iceland</td>
+                <td>HIC</td>
+                <td align="right">292708.00</td>
+                <td align="right">1.56</td>
+                <td align="right">18.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">456624.00</td>
+                <td align="right">81964.00</td>
+                <td align="right">0.00</td>
+                <td align="right">1639.00</td>
+                <td>0.01</td>
+                <td align="right">598.00</td>
+                <td align="right">883.00</td>
+                </tr>
+                <tr>
+                <td>India</td>
+                <td>LMI</td>
+                <td align="right">187493433.00</td>
+                <td align="right">0.34</td>
+                <td align="right">3.00</td>
+                <td align="right">85.00</td>
+                <td align="right">2.00</td>
+                <td align="right">63747767.00</td>
+                <td align="right">1880559.00</td>
+                <td align="right">1605729.00</td>
+                <td align="right">37611.00</td>
+                <td>0.01</td>
+                <td align="right">599819.00</td>
+                <td align="right">2881294.00</td>
+                </tr>
+                <tr>
+                <td>Indonesia</td>
+                <td>LMI</td>
+                <td align="right">187223476.00</td>
+                <td align="right">0.52</td>
+                <td align="right">11.00</td>
+                <td align="right">81.00</td>
+                <td align="right">2.00</td>
+                <td align="right">97356208.00</td>
+                <td align="right">10660505.00</td>
+                <td align="right">8600093.00</td>
+                <td align="right">213210.00</td>
+                <td>0.05</td>
+                <td align="right">3216856.00</td>
+                <td align="right">7415202.00</td>
+                </tr>
+                <tr>
+                <td>Iran</td>
+                <td>UMI</td>
+                <td align="right">9099695.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">50.00</td>
+                <td align="right">2.00</td>
+                <td align="right">10919634.00</td>
+                <td align="right">1304896.00</td>
+                <td align="right">651717.00</td>
+                <td align="right">26098.00</td>
+                <td>0.07</td>
+                <td align="right">247403.00</td>
+                <td align="right">460067.00</td>
+                </tr>
+                <tr>
+                <td>Iraq</td>
+                <td>LMI</td>
+                <td align="right">639228.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">63.00</td>
+                <td align="right">2.00</td>
+                <td align="right">504990.00</td>
+                <td align="right">65396.00</td>
+                <td align="right">41330.00</td>
+                <td align="right">1308.00</td>
+                <td>0.07</td>
+                <td align="right">15563.00</td>
+                <td align="right">47694.00</td>
+                </tr>
+                <tr>
+                <td>Ireland</td>
+                <td>HIC</td>
+                <td align="right">3749576.00</td>
+                <td align="right">3.58</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">13423482.00</td>
+                <td align="right">1604106.00</td>
+                <td align="right">0.00</td>
+                <td align="right">32082.00</td>
+                <td>0.01</td>
+                <td align="right">11710.00</td>
+                <td align="right">14045.00</td>
+                </tr>
+                <tr>
+                <td>Isle of Man</td>
+                <td>HIC</td>
+                <td align="right">81222.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">170566.00</td>
+                <td align="right">20383.00</td>
+                <td align="right">0.00</td>
+                <td align="right">408.00</td>
+                <td>0.01</td>
+                <td align="right">149.00</td>
+                <td align="right">210.00</td>
+                </tr>
+                <tr>
+                <td>Israel</td>
+                <td>HIC</td>
+                <td align="right">6677810.00</td>
+                <td align="right">2.12</td>
+                <td align="right">14.00</td>
+                <td align="right">1.00</td>
+                <td align="right">2.00</td>
+                <td align="right">14156957.00</td>
+                <td align="right">1974896.00</td>
+                <td align="right">12577.00</td>
+                <td align="right">39498.00</td>
+                <td>0.01</td>
+                <td align="right">19007.00</td>
+                <td align="right">28211.00</td>
+                </tr>
+                <tr>
+                <td>Italy</td>
+                <td>HIC</td>
+                <td align="right">33822532.00</td>
+                <td align="right">2.23</td>
+                <td align="right">6.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">75424246.00</td>
+                <td align="right">4487743.00</td>
+                <td align="right">0.00</td>
+                <td align="right">89755.00</td>
+                <td>0.00</td>
+                <td align="right">32761.00</td>
+                <td align="right">45058.00</td>
+                </tr>
+                <tr>
+                <td>Jamaica</td>
+                <td>UMI</td>
+                <td align="right">2820558.00</td>
+                <td align="right">0.18</td>
+                <td align="right">19.00</td>
+                <td align="right">27.00</td>
+                <td align="right">2.00</td>
+                <td align="right">507700.00</td>
+                <td align="right">96209.00</td>
+                <td align="right">25525.00</td>
+                <td align="right">1924.00</td>
+                <td>0.01</td>
+                <td align="right">10019.00</td>
+                <td align="right">59575.00</td>
+                </tr>
+                <tr>
+                <td>Japan</td>
+                <td>HIC</td>
+                <td align="right">115228891.00</td>
+                <td align="right">1.71</td>
+                <td align="right">10.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">197041404.00</td>
+                <td align="right">19605620.00</td>
+                <td align="right">0.00</td>
+                <td align="right">392112.00</td>
+                <td>0.00</td>
+                <td align="right">143121.00</td>
+                <td align="right">177241.00</td>
+                </tr>
+                <tr>
+                <td>Jersey</td>
+                <td>HIC</td>
+                <td align="right">90076.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">189160.00</td>
+                <td align="right">22605.00</td>
+                <td align="right">0.00</td>
+                <td align="right">452.00</td>
+                <td>0.01</td>
+                <td align="right">165.00</td>
+                <td align="right">233.00</td>
+                </tr>
+                <tr>
+                <td>Jordan</td>
+                <td>UMI</td>
+                <td align="right">55392.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">58.00</td>
+                <td align="right">2.00</td>
+                <td align="right">66470.00</td>
+                <td align="right">7943.00</td>
+                <td align="right">4600.00</td>
+                <td align="right">159.00</td>
+                <td>0.09</td>
+                <td align="right">1737.00</td>
+                <td align="right">2975.00</td>
+                </tr>
+                <tr>
+                <td>Kenya</td>
+                <td>LI</td>
+                <td align="right">2729945.00</td>
+                <td align="right">0.30</td>
+                <td align="right">9.00</td>
+                <td align="right">83.00</td>
+                <td align="right">2.00</td>
+                <td align="right">818984.00</td>
+                <td align="right">73299.00</td>
+                <td align="right">60610.00</td>
+                <td align="right">1466.00</td>
+                <td>0.02</td>
+                <td align="right">22658.00</td>
+                <td align="right">87109.00</td>
+                </tr>
+                <tr>
+                <td>Kiribati</td>
+                <td>LMI</td>
+                <td align="right">94487.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">84.00</td>
+                <td align="right">2.00</td>
+                <td align="right">74645.00</td>
+                <td align="right">9666.00</td>
+                <td align="right">8148.00</td>
+                <td align="right">193.00</td>
+                <td>0.09</td>
+                <td align="right">3045.00</td>
+                <td align="right">6977.00</td>
+                </tr>
+                <tr>
+                <td>Korea, North</td>
+                <td>LI</td>
+                <td align="right">17327483.00</td>
+                <td align="right">0.60</td>
+                <td align="right">9.00</td>
+                <td align="right">88.00</td>
+                <td align="right">2.00</td>
+                <td align="right">10396490.00</td>
+                <td align="right">930486.00</td>
+                <td align="right">815165.00</td>
+                <td align="right">18610.00</td>
+                <td>0.05</td>
+                <td align="right">304328.00</td>
+                <td align="right">610607.00</td>
+                </tr>
+                <tr>
+                <td>Korea, South (Republic of Korea)</td>
+                <td>HIC</td>
+                <td align="right">41654619.00</td>
+                <td align="right">1.24</td>
+                <td align="right">9.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">51651728.00</td>
+                <td align="right">4622830.00</td>
+                <td align="right">0.00</td>
+                <td align="right">92457.00</td>
+                <td>0.00</td>
+                <td align="right">33747.00</td>
+                <td align="right">52764.00</td>
+                </tr>
+                <tr>
+                <td>Kuwait</td>
+                <td>HIC</td>
+                <td align="right">2293604.00</td>
+                <td align="right">5.72</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">13119415.00</td>
+                <td align="right">1567770.00</td>
+                <td align="right">122.00</td>
+                <td align="right">31355.00</td>
+                <td>0.01</td>
+                <td align="right">11489.00</td>
+                <td align="right">13479.00</td>
+                </tr>
+                <tr>
+                <td>Latvia</td>
+                <td>UMI</td>
+                <td align="right">1432078.00</td>
+                <td align="right">1.03</td>
+                <td align="right">12.00</td>
+                <td align="right">14.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1475040.00</td>
+                <td align="right">176267.00</td>
+                <td align="right">24651.00</td>
+                <td align="right">3525.00</td>
+                <td>0.02</td>
+                <td align="right">10284.00</td>
+                <td align="right">16654.00</td>
+                </tr>
+                <tr>
+                <td>Lebanon</td>
+                <td>UMI</td>
+                <td align="right">3890871.00</td>
+                <td align="right">1.18</td>
+                <td align="right">8.00</td>
+                <td align="right">34.00</td>
+                <td align="right">2.00</td>
+                <td align="right">4591228.00</td>
+                <td align="right">365003.00</td>
+                <td align="right">123700.00</td>
+                <td align="right">7300.00</td>
+                <td>0.03</td>
+                <td align="right">47815.00</td>
+                <td align="right">101852.00</td>
+                </tr>
+                <tr>
+                <td>Liberia</td>
+                <td>LI</td>
+                <td align="right">2148271.00</td>
+                <td align="right">0.60</td>
+                <td align="right">14.00</td>
+                <td align="right">84.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1288963.00</td>
+                <td align="right">179810.00</td>
+                <td align="right">151822.00</td>
+                <td align="right">3596.00</td>
+                <td>0.07</td>
+                <td align="right">56728.00</td>
+                <td align="right">142787.00</td>
+                </tr>
+                <tr>
+                <td>Libya</td>
+                <td>UMI</td>
+                <td align="right">4050128.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">23.00</td>
+                <td align="right">2.00</td>
+                <td align="right">4860154.00</td>
+                <td align="right">580788.00</td>
+                <td align="right">132985.00</td>
+                <td align="right">11616.00</td>
+                <td>0.04</td>
+                <td align="right">52779.00</td>
+                <td align="right">102577.00</td>
+                </tr>
+                <tr>
+                <td>Lithuania</td>
+                <td>UMI</td>
+                <td align="right">443894.00</td>
+                <td align="right">1.10</td>
+                <td align="right">12.00</td>
+                <td align="right">14.00</td>
+                <td align="right">2.00</td>
+                <td align="right">488283.00</td>
+                <td align="right">58350.00</td>
+                <td align="right">8364.00</td>
+                <td align="right">1167.00</td>
+                <td>0.02</td>
+                <td align="right">3479.00</td>
+                <td align="right">5478.00</td>
+                </tr>
+                <tr>
+                <td>Macao</td>
+                <td>HIC</td>
+                <td align="right">257911.00</td>
+                <td align="right">1.47</td>
+                <td align="right">25.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">379129.00</td>
+                <td align="right">94593.00</td>
+                <td align="right">22.00</td>
+                <td align="right">1892.00</td>
+                <td>0.01</td>
+                <td align="right">698.00</td>
+                <td align="right">1146.00</td>
+                </tr>
+                <tr>
+                <td>Madagascar</td>
+                <td>LI</td>
+                <td align="right">7062413.00</td>
+                <td align="right">0.80</td>
+                <td align="right">2.00</td>
+                <td align="right">84.00</td>
+                <td align="right">2.00</td>
+                <td align="right">5649930.00</td>
+                <td align="right">110174.00</td>
+                <td align="right">92377.00</td>
+                <td align="right">2203.00</td>
+                <td>0.01</td>
+                <td align="right">34522.00</td>
+                <td align="right">177625.00</td>
+                </tr>
+                <tr>
+                <td>Malaysia</td>
+                <td>UMI</td>
+                <td align="right">22890252.00</td>
+                <td align="right">1.52</td>
+                <td align="right">13.00</td>
+                <td align="right">55.00</td>
+                <td align="right">2.00</td>
+                <td align="right">34793183.00</td>
+                <td align="right">4505717.00</td>
+                <td align="right">2476510.00</td>
+                <td align="right">90114.00</td>
+                <td>0.11</td>
+                <td align="right">936818.00</td>
+                <td align="right">1765977.00</td>
+                </tr>
+                <tr>
+                <td>Maldives</td>
+                <td>LMI</td>
+                <td align="right">392567.00</td>
+                <td align="right">2.48</td>
+                <td align="right">13.00</td>
+                <td align="right">66.00</td>
+                <td align="right">2.00</td>
+                <td align="right">973566.00</td>
+                <td align="right">126077.00</td>
+                <td align="right">83695.00</td>
+                <td align="right">2522.00</td>
+                <td>0.22</td>
+                <td align="right">31469.00</td>
+                <td align="right">40143.00</td>
+                </tr>
+                <tr>
+                <td>Malta</td>
+                <td>HIC</td>
+                <td align="right">404707.00</td>
+                <td align="right">1.78</td>
+                <td align="right">12.00</td>
+                <td align="right">6.00</td>
+                <td align="right">2.00</td>
+                <td align="right">720378.00</td>
+                <td align="right">86085.00</td>
+                <td align="right">5456.00</td>
+                <td align="right">1722.00</td>
+                <td>0.02</td>
+                <td align="right">2620.00</td>
+                <td align="right">3757.00</td>
+                </tr>
+                <tr>
+                <td>Marshall Islands</td>
+                <td>UMI</td>
+                <td align="right">58086.00</td>
+                <td align="right">1.20</td>
+                <td align="right">16.00</td>
+                <td align="right">77.00</td>
+                <td align="right">2.00</td>
+                <td align="right">69703.00</td>
+                <td align="right">11118.00</td>
+                <td align="right">8510.00</td>
+                <td align="right">222.00</td>
+                <td>0.15</td>
+                <td align="right">3187.00</td>
+                <td align="right">5717.00</td>
+                </tr>
+                <tr>
+                <td>Martinique</td>
+                <td>HIC</td>
+                <td align="right">402257.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">844740.00</td>
+                <td align="right">100946.00</td>
+                <td align="right">33.00</td>
+                <td align="right">2019.00</td>
+                <td>0.01</td>
+                <td align="right">749.00</td>
+                <td align="right">955.00</td>
+                </tr>
+                <tr>
+                <td>Mauritania</td>
+                <td>LI</td>
+                <td align="right">1005481.00</td>
+                <td align="right">0.50</td>
+                <td align="right">9.00</td>
+                <td align="right">82.00</td>
+                <td align="right">2.00</td>
+                <td align="right">502741.00</td>
+                <td align="right">44995.00</td>
+                <td align="right">37056.00</td>
+                <td align="right">900.00</td>
+                <td>0.04</td>
+                <td align="right">13854.00</td>
+                <td align="right">39754.00</td>
+                </tr>
+                <tr>
+                <td>Mauritius</td>
+                <td>UMI</td>
+                <td align="right">1255952.00</td>
+                <td align="right">2.30</td>
+                <td align="right">10.00</td>
+                <td align="right">51.00</td>
+                <td align="right">2.00</td>
+                <td align="right">2888690.00</td>
+                <td align="right">287425.00</td>
+                <td align="right">147817.00</td>
+                <td align="right">5748.00</td>
+                <td>0.12</td>
+                <td align="right">56051.00</td>
+                <td align="right">73172.00</td>
+                </tr>
+                <tr>
+                <td>Mexico</td>
+                <td>UMI</td>
+                <td align="right">22647771.00</td>
+                <td align="right">1.24</td>
+                <td align="right">7.00</td>
+                <td align="right">12.00</td>
+                <td align="right">2.00</td>
+                <td align="right">28083236.00</td>
+                <td align="right">1951785.00</td>
+                <td align="right">238616.00</td>
+                <td align="right">39036.00</td>
+                <td>0.01</td>
+                <td align="right">101343.00</td>
+                <td align="right">233393.00</td>
+                </tr>
+                <tr>
+                <td>Micronesia</td>
+                <td>LMI</td>
+                <td align="right">154895.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">81.00</td>
+                <td align="right">2.00</td>
+                <td align="right">122367.00</td>
+                <td align="right">15847.00</td>
+                <td align="right">12818.00</td>
+                <td align="right">317.00</td>
+                <td>0.09</td>
+                <td align="right">4794.00</td>
+                <td align="right">10699.00</td>
+                </tr>
+                <tr>
+                <td>Monaco</td>
+                <td>HIC</td>
+                <td align="right">34050.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">71505.00</td>
+                <td align="right">8545.00</td>
+                <td align="right">0.00</td>
+                <td align="right">171.00</td>
+                <td>0.01</td>
+                <td align="right">62.00</td>
+                <td align="right">88.00</td>
+                </tr>
+                <tr>
+                <td>Montenegro</td>
+                <td>UMI</td>
+                <td align="right">260336.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">30.00</td>
+                <td align="right">2.00</td>
+                <td align="right">312403.00</td>
+                <td align="right">37332.00</td>
+                <td align="right">11353.00</td>
+                <td align="right">747.00</td>
+                <td>0.05</td>
+                <td align="right">4416.00</td>
+                <td align="right">7244.00</td>
+                </tr>
+                <tr>
+                <td>Montserrat</td>
+                <td>UMI</td>
+                <td align="right">5173.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">12.00</td>
+                <td align="right">2.00</td>
+                <td align="right">6208.00</td>
+                <td align="right">742.00</td>
+                <td align="right">89.00</td>
+                <td align="right">15.00</td>
+                <td>0.02</td>
+                <td align="right">38.00</td>
+                <td align="right">71.00</td>
+                </tr>
+                <tr>
+                <td>Morocco</td>
+                <td>LMI</td>
+                <td align="right">17303431.00</td>
+                <td align="right">1.46</td>
+                <td align="right">5.00</td>
+                <td align="right">66.00</td>
+                <td align="right">2.00</td>
+                <td align="right">25263009.00</td>
+                <td align="right">1250519.00</td>
+                <td align="right">824650.00</td>
+                <td align="right">25010.00</td>
+                <td>0.05</td>
+                <td align="right">310126.00</td>
+                <td align="right">706583.00</td>
+                </tr>
+                <tr>
+                <td>Mozambique</td>
+                <td>LI</td>
+                <td align="right">9566559.00</td>
+                <td align="right">0.14</td>
+                <td align="right">11.00</td>
+                <td align="right">84.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1339318.00</td>
+                <td align="right">146655.00</td>
+                <td align="right">123081.00</td>
+                <td align="right">2933.00</td>
+                <td>0.01</td>
+                <td align="right">45995.00</td>
+                <td align="right">287067.00</td>
+                </tr>
+                <tr>
+                <td>Namibia</td>
+                <td>UMI</td>
+                <td align="right">155084.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">66.00</td>
+                <td align="right">2.00</td>
+                <td align="right">186101.00</td>
+                <td align="right">22239.00</td>
+                <td align="right">14570.00</td>
+                <td align="right">445.00</td>
+                <td>0.10</td>
+                <td align="right">5480.00</td>
+                <td align="right">11340.00</td>
+                </tr>
+                <tr>
+                <td>Nauru</td>
+                <td>UMI</td>
+                <td align="right">15289.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">67.00</td>
+                <td align="right">2.00</td>
+                <td align="right">18347.00</td>
+                <td align="right">2192.00</td>
+                <td align="right">1473.00</td>
+                <td align="right">44.00</td>
+                <td>0.10</td>
+                <td align="right">554.00</td>
+                <td align="right">1043.00</td>
+                </tr>
+                <tr>
+                <td>Netherlands</td>
+                <td>HIC</td>
+                <td align="right">8971770.00</td>
+                <td align="right">2.12</td>
+                <td align="right">20.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">19020152.00</td>
+                <td align="right">3794520.00</td>
+                <td align="right">0.00</td>
+                <td align="right">75890.00</td>
+                <td>0.01</td>
+                <td align="right">27700.00</td>
+                <td align="right">32387.00</td>
+                </tr>
+                <tr>
+                <td>Netherlands Antilles</td>
+                <td>HIC</td>
+                <td align="right">227165.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">477047.00</td>
+                <td align="right">57007.00</td>
+                <td align="right">0.00</td>
+                <td align="right">1140.00</td>
+                <td>0.01</td>
+                <td align="right">416.00</td>
+                <td align="right">368.00</td>
+                </tr>
+                <tr>
+                <td>New Caledonia</td>
+                <td>HIC</td>
+                <td align="right">257904.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">541598.00</td>
+                <td align="right">64721.00</td>
+                <td align="right">0.00</td>
+                <td align="right">1294.00</td>
+                <td>0.01</td>
+                <td align="right">472.00</td>
+                <td align="right">702.00</td>
+                </tr>
+                <tr>
+                <td>New Zealand</td>
+                <td>HIC</td>
+                <td align="right">3862054.00</td>
+                <td align="right">3.68</td>
+                <td align="right">9.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">14212359.00</td>
+                <td align="right">1272006.00</td>
+                <td align="right">0.00</td>
+                <td align="right">25440.00</td>
+                <td>0.01</td>
+                <td align="right">9286.00</td>
+                <td align="right">11517.00</td>
+                </tr>
+                <tr>
+                <td>Nicaragua</td>
+                <td>LMI</td>
+                <td align="right">3482653.00</td>
+                <td align="right">1.10</td>
+                <td align="right">13.00</td>
+                <td align="right">45.00</td>
+                <td align="right">2.00</td>
+                <td align="right">3830918.00</td>
+                <td align="right">496104.00</td>
+                <td align="right">221353.00</td>
+                <td align="right">9922.00</td>
+                <td>0.07</td>
+                <td align="right">84415.00</td>
+                <td align="right">169439.00</td>
+                </tr>
+                <tr>
+                <td>Nigeria</td>
+                <td>LMI</td>
+                <td align="right">27477112.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">81.00</td>
+                <td align="right">2.00</td>
+                <td align="right">21706918.00</td>
+                <td align="right">2811046.00</td>
+                <td align="right">2276636.00</td>
+                <td align="right">56221.00</td>
+                <td>0.09</td>
+                <td align="right">851493.00</td>
+                <td align="right">2481008.00</td>
+                </tr>
+                <tr>
+                <td>Niue</td>
+                <td>HIC</td>
+                <td align="right">1799.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">3778.00</td>
+                <td align="right">451.00</td>
+                <td align="right">1.00</td>
+                <td align="right">9.00</td>
+                <td>0.01</td>
+                <td align="right">4.00</td>
+                <td align="right">5.00</td>
+                </tr>
+                <tr>
+                <td>Norfolk Island</td>
+                <td>LMI</td>
+                <td align="right">2156.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">82.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1703.00</td>
+                <td align="right">221.00</td>
+                <td align="right">182.00</td>
+                <td align="right">4.00</td>
+                <td>0.09</td>
+                <td align="right">68.00</td>
+                <td align="right">156.00</td>
+                </tr>
+                <tr>
+                <td>Northern Mariana Islands</td>
+                <td>HIC</td>
+                <td align="right">106256.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">223138.00</td>
+                <td align="right">26665.00</td>
+                <td align="right">66.00</td>
+                <td align="right">533.00</td>
+                <td>0.01</td>
+                <td align="right">219.00</td>
+                <td align="right">309.00</td>
+                </tr>
+                <tr>
+                <td>Norway</td>
+                <td>HIC</td>
+                <td align="right">4131679.00</td>
+                <td align="right">2.80</td>
+                <td align="right">10.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">11568701.00</td>
+                <td align="right">1151086.00</td>
+                <td align="right">0.00</td>
+                <td align="right">23022.00</td>
+                <td>0.01</td>
+                <td align="right">8403.00</td>
+                <td align="right">9798.00</td>
+                </tr>
+                <tr>
+                <td>Oman</td>
+                <td>HIC</td>
+                <td align="right">2597556.00</td>
+                <td align="right">0.70</td>
+                <td align="right">12.00</td>
+                <td align="right">4.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1818289.00</td>
+                <td align="right">217286.00</td>
+                <td align="right">8416.00</td>
+                <td align="right">4346.00</td>
+                <td>0.01</td>
+                <td align="right">4658.00</td>
+                <td align="right">11774.00</td>
+                </tr>
+                <tr>
+                <td>Pakistan</td>
+                <td>LMI</td>
+                <td align="right">14581952.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">86.00</td>
+                <td align="right">2.00</td>
+                <td align="right">11519742.00</td>
+                <td align="right">1491807.00</td>
+                <td align="right">1286583.00</td>
+                <td align="right">29836.00</td>
+                <td>0.09</td>
+                <td align="right">480493.00</td>
+                <td align="right">1221460.00</td>
+                </tr>
+                <tr>
+                <td>Palau</td>
+                <td>UMI</td>
+                <td align="right">23446.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">56.00</td>
+                <td align="right">2.00</td>
+                <td align="right">28135.00</td>
+                <td align="right">3362.00</td>
+                <td align="right">1895.00</td>
+                <td align="right">67.00</td>
+                <td>0.08</td>
+                <td align="right">716.00</td>
+                <td align="right">1350.00</td>
+                </tr>
+                <tr>
+                <td>Palestine (Gaza Strip is only part on the coast)</td>
+                <td>LMI</td>
+                <td align="right">3045258.00</td>
+                <td align="right">0.79</td>
+                <td align="right">8.00</td>
+                <td align="right">6.00</td>
+                <td align="right">2.00</td>
+                <td align="right">2405754.00</td>
+                <td align="right">191257.00</td>
+                <td align="right">11515.00</td>
+                <td align="right">3825.00</td>
+                <td>0.01</td>
+                <td align="right">5599.00</td>
+                <td align="right">18676.00</td>
+                </tr>
+                <tr>
+                <td>Panama</td>
+                <td>UMI</td>
+                <td align="right">3249531.00</td>
+                <td align="right">1.21</td>
+                <td align="right">12.00</td>
+                <td align="right">18.00</td>
+                <td align="right">2.00</td>
+                <td align="right">3931933.00</td>
+                <td align="right">469866.00</td>
+                <td align="right">84815.00</td>
+                <td align="right">9397.00</td>
+                <td>0.03</td>
+                <td align="right">34388.00</td>
+                <td align="right">70759.00</td>
+                </tr>
+                <tr>
+                <td>Papua New Guinea</td>
+                <td>LMI</td>
+                <td align="right">2747514.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">86.00</td>
+                <td align="right">2.00</td>
+                <td align="right">2170536.00</td>
+                <td align="right">281084.00</td>
+                <td align="right">240502.00</td>
+                <td align="right">5622.00</td>
+                <td>0.09</td>
+                <td align="right">89835.00</td>
+                <td align="right">242328.00</td>
+                </tr>
+                <tr>
+                <td>Peru</td>
+                <td>UMI</td>
+                <td align="right">13765608.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">25.00</td>
+                <td align="right">2.00</td>
+                <td align="right">16518730.00</td>
+                <td align="right">1973988.00</td>
+                <td align="right">493267.00</td>
+                <td align="right">39480.00</td>
+                <td>0.04</td>
+                <td align="right">194453.00</td>
+                <td align="right">377111.00</td>
+                </tr>
+                <tr>
+                <td>Philippines</td>
+                <td>LMI</td>
+                <td align="right">83446862.00</td>
+                <td align="right">0.50</td>
+                <td align="right">15.00</td>
+                <td align="right">81.00</td>
+                <td align="right">2.00</td>
+                <td align="right">41723431.00</td>
+                <td align="right">6237653.00</td>
+                <td align="right">5035956.00</td>
+                <td align="right">124753.00</td>
+                <td>0.06</td>
+                <td align="right">1883659.00</td>
+                <td align="right">5088394.00</td>
+                </tr>
+                <tr>
+                <td>Poland</td>
+                <td>UMI</td>
+                <td align="right">3272933.00</td>
+                <td align="right">0.88</td>
+                <td align="right">11.00</td>
+                <td align="right">12.00</td>
+                <td align="right">2.00</td>
+                <td align="right">2880181.00</td>
+                <td align="right">315380.00</td>
+                <td align="right">36715.00</td>
+                <td align="right">6308.00</td>
+                <td>0.01</td>
+                <td align="right">15703.00</td>
+                <td align="right">26855.00</td>
+                </tr>
+                <tr>
+                <td>Portugal</td>
+                <td>HIC</td>
+                <td align="right">8507951.00</td>
+                <td align="right">2.21</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">18802572.00</td>
+                <td align="right">2246907.00</td>
+                <td align="right">0.00</td>
+                <td align="right">44938.00</td>
+                <td>0.01</td>
+                <td align="right">16402.00</td>
+                <td align="right">19382.00</td>
+                </tr>
+                <tr>
+                <td>Puerto Rico</td>
+                <td>HIC</td>
+                <td align="right">4249848.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">2.00</td>
+                <td align="right">2.00</td>
+                <td align="right">8924681.00</td>
+                <td align="right">1066499.00</td>
+                <td align="right">23923.00</td>
+                <td align="right">21330.00</td>
+                <td>0.01</td>
+                <td align="right">16517.00</td>
+                <td align="right">20481.00</td>
+                </tr>
+                <tr>
+                <td>Qatar</td>
+                <td>HIC</td>
+                <td align="right">653007.00</td>
+                <td align="right">1.33</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">868499.00</td>
+                <td align="right">103786.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2076.00</td>
+                <td>0.00</td>
+                <td align="right">758.00</td>
+                <td align="right">1560.00</td>
+                </tr>
+                <tr>
+                <td>Reunion</td>
+                <td>UMI</td>
+                <td align="right">809426.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">971311.00</td>
+                <td align="right">116072.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2321.00</td>
+                <td>0.00</td>
+                <td align="right">847.00</td>
+                <td align="right">1615.00</td>
+                </tr>
+                <tr>
+                <td>Romania</td>
+                <td>UMI</td>
+                <td align="right">875170.00</td>
+                <td align="right">1.04</td>
+                <td align="right">4.00</td>
+                <td align="right">26.00</td>
+                <td align="right">2.00</td>
+                <td align="right">910177.00</td>
+                <td align="right">35952.00</td>
+                <td align="right">9172.00</td>
+                <td align="right">719.00</td>
+                <td>0.01</td>
+                <td align="right">3610.00</td>
+                <td align="right">8261.00</td>
+                </tr>
+                <tr>
+                <td>Russia</td>
+                <td>UMI</td>
+                <td align="right">10812537.00</td>
+                <td align="right">0.93</td>
+                <td align="right">12.00</td>
+                <td align="right">16.00</td>
+                <td align="right">2.00</td>
+                <td align="right">10055659.00</td>
+                <td align="right">1201651.00</td>
+                <td align="right">197226.00</td>
+                <td align="right">24033.00</td>
+                <td>0.02</td>
+                <td align="right">80759.00</td>
+                <td align="right">128946.00</td>
+                </tr>
+                <tr>
+                <td>Saint Helena</td>
+                <td>UMI</td>
+                <td align="right">6839.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">25.00</td>
+                <td align="right">2.00</td>
+                <td align="right">8207.00</td>
+                <td align="right">981.00</td>
+                <td align="right">244.00</td>
+                <td align="right">20.00</td>
+                <td>0.04</td>
+                <td align="right">96.00</td>
+                <td align="right">182.00</td>
+                </tr>
+                <tr>
+                <td>Saint Kitts and Nevis</td>
+                <td>UMI</td>
+                <td align="right">36102.00</td>
+                <td align="right">5.45</td>
+                <td align="right">12.00</td>
+                <td align="right">6.00</td>
+                <td align="right">2.00</td>
+                <td align="right">196756.00</td>
+                <td align="right">23512.00</td>
+                <td align="right">1489.00</td>
+                <td align="right">470.00</td>
+                <td>0.05</td>
+                <td align="right">715.00</td>
+                <td align="right">742.00</td>
+                </tr>
+                <tr>
+                <td>Saint Lucia</td>
+                <td>UMI</td>
+                <td align="right">163227.00</td>
+                <td align="right">4.35</td>
+                <td align="right">12.00</td>
+                <td align="right">20.00</td>
+                <td align="right">2.00</td>
+                <td align="right">710037.00</td>
+                <td align="right">84849.00</td>
+                <td align="right">16683.00</td>
+                <td align="right">1697.00</td>
+                <td>0.11</td>
+                <td align="right">6709.00</td>
+                <td align="right">8610.00</td>
+                </tr>
+                <tr>
+                <td>Saint Maarten, DWI</td>
+                <td>HIC</td>
+                <td align="right">37429.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">78601.00</td>
+                <td align="right">9393.00</td>
+                <td align="right">3.00</td>
+                <td align="right">188.00</td>
+                <td>0.01</td>
+                <td align="right">70.00</td>
+                <td align="right">98.00</td>
+                </tr>
+                <tr>
+                <td>Saint Pierre</td>
+                <td>HIC</td>
+                <td align="right">5888.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">12365.00</td>
+                <td align="right">1478.00</td>
+                <td align="right">0.00</td>
+                <td align="right">30.00</td>
+                <td>0.01</td>
+                <td align="right">11.00</td>
+                <td align="right">15.00</td>
+                </tr>
+                <tr>
+                <td>Saint Vincent and the Grenadines</td>
+                <td>UMI</td>
+                <td align="right">120149.00</td>
+                <td align="right">1.70</td>
+                <td align="right">13.00</td>
+                <td align="right">21.00</td>
+                <td align="right">2.00</td>
+                <td align="right">204253.00</td>
+                <td align="right">26451.00</td>
+                <td align="right">5621.00</td>
+                <td align="right">529.00</td>
+                <td>0.05</td>
+                <td align="right">2245.00</td>
+                <td align="right">2996.00</td>
+                </tr>
+                <tr>
+                <td>Samoa</td>
+                <td>LMI</td>
+                <td align="right">168025.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">80.00</td>
+                <td align="right">2.00</td>
+                <td align="right">132740.00</td>
+                <td align="right">17190.00</td>
+                <td align="right">13688.00</td>
+                <td align="right">344.00</td>
+                <td>0.08</td>
+                <td align="right">5122.00</td>
+                <td align="right">10989.00</td>
+                </tr>
+                <tr>
+                <td>Sao Tome and Principe</td>
+                <td>LMI</td>
+                <td align="right">163740.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">81.00</td>
+                <td align="right">2.00</td>
+                <td align="right">129355.00</td>
+                <td align="right">16751.00</td>
+                <td align="right">13587.00</td>
+                <td align="right">335.00</td>
+                <td>0.09</td>
+                <td align="right">5081.00</td>
+                <td align="right">13309.00</td>
+                </tr>
+                <tr>
+                <td>Saudi Arabia</td>
+                <td>HIC</td>
+                <td align="right">3593471.00</td>
+                <td align="right">1.30</td>
+                <td align="right">12.00</td>
+                <td align="right">8.00</td>
+                <td align="right">2.00</td>
+                <td align="right">4671512.00</td>
+                <td align="right">558246.00</td>
+                <td align="right">45142.00</td>
+                <td align="right">11165.00</td>
+                <td>0.02</td>
+                <td align="right">20552.00</td>
+                <td align="right">43855.00</td>
+                </tr>
+                <tr>
+                <td>Senegal</td>
+                <td>LMI</td>
+                <td align="right">8125063.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">82.00</td>
+                <td align="right">2.00</td>
+                <td align="right">6418800.00</td>
+                <td align="right">831235.00</td>
+                <td align="right">681376.00</td>
+                <td align="right">16625.00</td>
+                <td>0.09</td>
+                <td align="right">254770.00</td>
+                <td align="right">738264.00</td>
+                </tr>
+                <tr>
+                <td>Seychelles</td>
+                <td>UMI</td>
+                <td align="right">91361.00</td>
+                <td align="right">2.98</td>
+                <td align="right">12.00</td>
+                <td align="right">37.00</td>
+                <td align="right">2.00</td>
+                <td align="right">272256.00</td>
+                <td align="right">32535.00</td>
+                <td align="right">12005.00</td>
+                <td align="right">651.00</td>
+                <td>0.14</td>
+                <td align="right">4619.00</td>
+                <td align="right">5478.00</td>
+                </tr>
+                <tr>
+                <td>Sierra Leone</td>
+                <td>LI</td>
+                <td align="right">2887017.00</td>
+                <td align="right">0.45</td>
+                <td align="right">9.00</td>
+                <td align="right">84.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1299158.00</td>
+                <td align="right">116275.00</td>
+                <td align="right">97423.00</td>
+                <td align="right">2325.00</td>
+                <td>0.04</td>
+                <td align="right">36408.00</td>
+                <td align="right">121312.00</td>
+                </tr>
+                <tr>
+                <td>Singapore</td>
+                <td>HIC</td>
+                <td align="right">4492494.00</td>
+                <td align="right">1.49</td>
+                <td align="right">13.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">6693816.00</td>
+                <td align="right">866849.00</td>
+                <td align="right">393.00</td>
+                <td align="right">17337.00</td>
+                <td>0.00</td>
+                <td align="right">6472.00</td>
+                <td align="right">10878.00</td>
+                </tr>
+                <tr>
+                <td>Slovenia</td>
+                <td>HIC</td>
+                <td align="right">336594.00</td>
+                <td align="right">1.21</td>
+                <td align="right">12.00</td>
+                <td align="right">1.00</td>
+                <td align="right">2.00</td>
+                <td align="right">407279.00</td>
+                <td align="right">48670.00</td>
+                <td align="right">550.00</td>
+                <td align="right">973.00</td>
+                <td>0.01</td>
+                <td align="right">556.00</td>
+                <td align="right">985.00</td>
+                </tr>
+                <tr>
+                <td>Solomon Islands</td>
+                <td>LMI</td>
+                <td align="right">618678.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">86.00</td>
+                <td align="right">2.00</td>
+                <td align="right">488756.00</td>
+                <td align="right">63294.00</td>
+                <td align="right">54608.00</td>
+                <td align="right">1266.00</td>
+                <td>0.09</td>
+                <td align="right">20394.00</td>
+                <td align="right">176589.00</td>
+                </tr>
+                <tr>
+                <td>Somalia</td>
+                <td>LI</td>
+                <td align="right">5971169.00</td>
+                <td align="right">0.60</td>
+                <td align="right">9.00</td>
+                <td align="right">85.00</td>
+                <td align="right">2.00</td>
+                <td align="right">3582701.00</td>
+                <td align="right">320652.00</td>
+                <td align="right">271753.00</td>
+                <td align="right">6413.00</td>
+                <td>0.05</td>
+                <td align="right">101531.00</td>
+                <td align="right">289601.00</td>
+                </tr>
+                <tr>
+                <td>South Africa</td>
+                <td>UMI</td>
+                <td align="right">12899201.00</td>
+                <td align="right">2.00</td>
+                <td align="right">12.00</td>
+                <td align="right">54.00</td>
+                <td align="right">2.00</td>
+                <td align="right">25798402.00</td>
+                <td align="right">3082909.00</td>
+                <td align="right">1664382.00</td>
+                <td align="right">61658.00</td>
+                <td>0.13</td>
+                <td align="right">630005.00</td>
+                <td align="right">836279.00</td>
+                </tr>
+                <tr>
+                <td>Spain</td>
+                <td>HIC</td>
+                <td align="right">22771488.00</td>
+                <td align="right">2.13</td>
+                <td align="right">13.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">48503269.00</td>
+                <td align="right">6281173.00</td>
+                <td align="right">0.00</td>
+                <td align="right">125623.00</td>
+                <td>0.01</td>
+                <td align="right">45853.00</td>
+                <td align="right">58932.00</td>
+                </tr>
+                <tr>
+                <td>Sri Lanka</td>
+                <td>LMI</td>
+                <td align="right">14568174.00</td>
+                <td align="right">5.10</td>
+                <td align="right">7.00</td>
+                <td align="right">82.00</td>
+                <td align="right">2.00</td>
+                <td align="right">74297687.00</td>
+                <td align="right">5163689.00</td>
+                <td align="right">4256120.00</td>
+                <td align="right">103274.00</td>
+                <td>0.30</td>
+                <td align="right">1591179.00</td>
+                <td align="right">1918670.00</td>
+                </tr>
+                <tr>
+                <td>Sudan</td>
+                <td>LMI</td>
+                <td align="right">752529.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">80.00</td>
+                <td align="right">2.00</td>
+                <td align="right">594498.00</td>
+                <td align="right">76987.00</td>
+                <td align="right">61277.00</td>
+                <td align="right">1540.00</td>
+                <td>0.08</td>
+                <td align="right">22928.00</td>
+                <td align="right">52061.00</td>
+                </tr>
+                <tr>
+                <td>Suriname</td>
+                <td>UMI</td>
+                <td align="right">402263.00</td>
+                <td align="right">1.36</td>
+                <td align="right">12.00</td>
+                <td align="right">15.00</td>
+                <td align="right">2.00</td>
+                <td align="right">547078.00</td>
+                <td align="right">65376.00</td>
+                <td align="right">9493.00</td>
+                <td align="right">1308.00</td>
+                <td>0.03</td>
+                <td align="right">3942.00</td>
+                <td align="right">6394.00</td>
+                </tr>
+                <tr>
+                <td>Svalbard</td>
+                <td>LMI</td>
+                <td align="right">2226.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1759.00</td>
+                <td align="right">228.00</td>
+                <td align="right">0.00</td>
+                <td align="right">5.00</td>
+                <td>0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">4.00</td>
+                </tr>
+                <tr>
+                <td>Sweden</td>
+                <td>HIC</td>
+                <td align="right">6202234.00</td>
+                <td align="right">1.61</td>
+                <td align="right">3.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">9985597.00</td>
+                <td align="right">294575.00</td>
+                <td align="right">0.00</td>
+                <td align="right">5892.00</td>
+                <td>0.00</td>
+                <td align="right">2150.00</td>
+                <td align="right">5245.00</td>
+                </tr>
+                <tr>
+                <td>Syria</td>
+                <td>LMI</td>
+                <td align="right">3621997.00</td>
+                <td align="right">1.37</td>
+                <td align="right">13.00</td>
+                <td align="right">65.00</td>
+                <td align="right">2.00</td>
+                <td align="right">4962136.00</td>
+                <td align="right">642597.00</td>
+                <td align="right">419763.00</td>
+                <td align="right">12852.00</td>
+                <td>0.12</td>
+                <td align="right">157904.00</td>
+                <td align="right">304960.00</td>
+                </tr>
+                <tr>
+                <td>Taiwan</td>
+                <td>HIC</td>
+                <td align="right">22211567.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">46644291.00</td>
+                <td align="right">5573993.00</td>
+                <td align="right">13776.00</td>
+                <td align="right">111480.00</td>
+                <td>0.01</td>
+                <td align="right">45718.00</td>
+                <td align="right">64631.00</td>
+                </tr>
+                <tr>
+                <td>Tanzania</td>
+                <td>LI</td>
+                <td align="right">6688695.00</td>
+                <td align="right">0.26</td>
+                <td align="right">9.00</td>
+                <td align="right">84.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1739061.00</td>
+                <td align="right">155646.00</td>
+                <td align="right">129999.00</td>
+                <td align="right">3113.00</td>
+                <td>0.02</td>
+                <td align="right">48586.00</td>
+                <td align="right">214196.00</td>
+                </tr>
+                <tr>
+                <td>Thailand</td>
+                <td>UMI</td>
+                <td align="right">26043442.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">73.00</td>
+                <td align="right">2.00</td>
+                <td align="right">31252130.00</td>
+                <td align="right">3734630.00</td>
+                <td align="right">2741031.00</td>
+                <td align="right">74693.00</td>
+                <td>0.11</td>
+                <td align="right">1027739.00</td>
+                <td align="right">2179508.00</td>
+                </tr>
+                <tr>
+                <td>The Gambia</td>
+                <td>LI</td>
+                <td align="right">1324214.00</td>
+                <td align="right">0.53</td>
+                <td align="right">9.00</td>
+                <td align="right">84.00</td>
+                <td align="right">2.00</td>
+                <td align="right">701833.00</td>
+                <td align="right">62814.00</td>
+                <td align="right">52485.00</td>
+                <td align="right">1256.00</td>
+                <td>0.04</td>
+                <td align="right">19616.00</td>
+                <td align="right">53498.00</td>
+                </tr>
+                <tr>
+                <td>Togo</td>
+                <td>LI</td>
+                <td align="right">1991642.00</td>
+                <td align="right">0.52</td>
+                <td align="right">11.00</td>
+                <td align="right">84.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1035654.00</td>
+                <td align="right">113404.00</td>
+                <td align="right">94721.00</td>
+                <td align="right">2268.00</td>
+                <td>0.05</td>
+                <td align="right">35401.00</td>
+                <td align="right">96994.00</td>
+                </tr>
+                <tr>
+                <td>Tokelau</td>
+                <td>LMI</td>
+                <td align="right">1379.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">82.00</td>
+                <td align="right">2.00</td>
+                <td align="right">1089.00</td>
+                <td align="right">141.00</td>
+                <td align="right">116.00</td>
+                <td align="right">3.00</td>
+                <td>0.09</td>
+                <td align="right">43.00</td>
+                <td align="right">100.00</td>
+                </tr>
+                <tr>
+                <td>Tonga</td>
+                <td>LMI</td>
+                <td align="right">102872.00</td>
+                <td align="right">3.71</td>
+                <td align="right">6.00</td>
+                <td align="right">78.00</td>
+                <td align="right">2.00</td>
+                <td align="right">381655.00</td>
+                <td align="right">22708.00</td>
+                <td align="right">17694.00</td>
+                <td align="right">454.00</td>
+                <td>0.18</td>
+                <td align="right">6624.00</td>
+                <td align="right">10272.00</td>
+                </tr>
+                <tr>
+                <td>Trinidad and Tobago</td>
+                <td>HIC</td>
+                <td align="right">1358433.00</td>
+                <td align="right">14.40</td>
+                <td align="right">25.00</td>
+                <td align="right">3.00</td>
+                <td align="right">2.00</td>
+                <td align="right">19561435.00</td>
+                <td align="right">4880578.00</td>
+                <td align="right">160103.00</td>
+                <td align="right">97612.00</td>
+                <td>0.19</td>
+                <td align="right">94066.00</td>
+                <td align="right">73512.00</td>
+                </tr>
+                <tr>
+                <td>Tunisia</td>
+                <td>UMI</td>
+                <td align="right">7274973.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">60.00</td>
+                <td align="right">2.00</td>
+                <td align="right">8729968.00</td>
+                <td align="right">1043231.00</td>
+                <td align="right">621077.00</td>
+                <td align="right">20865.00</td>
+                <td>0.09</td>
+                <td align="right">234309.00</td>
+                <td align="right">440701.00</td>
+                </tr>
+                <tr>
+                <td>Turkey</td>
+                <td>UMI</td>
+                <td align="right">34042862.00</td>
+                <td align="right">1.77</td>
+                <td align="right">12.00</td>
+                <td align="right">16.00</td>
+                <td align="right">2.00</td>
+                <td align="right">60255866.00</td>
+                <td align="right">7200576.00</td>
+                <td align="right">1187323.00</td>
+                <td align="right">144012.00</td>
+                <td>0.04</td>
+                <td align="right">485937.00</td>
+                <td align="right">790235.00</td>
+                </tr>
+                <tr>
+                <td>Turks and Caicos Islands</td>
+                <td>HIC</td>
+                <td align="right">22570.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">47397.00</td>
+                <td align="right">5664.00</td>
+                <td align="right">22.00</td>
+                <td align="right">113.00</td>
+                <td>0.01</td>
+                <td align="right">49.00</td>
+                <td align="right">70.00</td>
+                </tr>
+                <tr>
+                <td>Tuvalu</td>
+                <td>UMI</td>
+                <td align="right">11563.00</td>
+                <td align="right">1.20</td>
+                <td align="right">12.00</td>
+                <td align="right">73.00</td>
+                <td align="right">2.00</td>
+                <td align="right">13876.00</td>
+                <td align="right">1658.00</td>
+                <td align="right">1218.00</td>
+                <td align="right">33.00</td>
+                <td>0.11</td>
+                <td align="right">457.00</td>
+                <td align="right">861.00</td>
+                </tr>
+                <tr>
+                <td>Ukraine</td>
+                <td>LMI</td>
+                <td align="right">6812799.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">49.00</td>
+                <td align="right">2.00</td>
+                <td align="right">5382111.00</td>
+                <td align="right">696983.00</td>
+                <td align="right">338841.00</td>
+                <td align="right">13940.00</td>
+                <td>0.05</td>
+                <td align="right">128765.00</td>
+                <td align="right">233388.00</td>
+                </tr>
+                <tr>
+                <td>United Arab Emirates</td>
+                <td>HIC</td>
+                <td align="right">2018302.00</td>
+                <td align="right">1.66</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">3350381.00</td>
+                <td align="right">400371.00</td>
+                <td align="right">256.00</td>
+                <td align="right">8007.00</td>
+                <td>0.00</td>
+                <td align="right">3016.00</td>
+                <td align="right">5910.00</td>
+                </tr>
+                <tr>
+                <td>United Kingdom</td>
+                <td>HIC</td>
+                <td align="right">43258889.00</td>
+                <td align="right">1.79</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">77433411.00</td>
+                <td align="right">9253293.00</td>
+                <td align="right">0.00</td>
+                <td align="right">185066.00</td>
+                <td>0.00</td>
+                <td align="right">67549.00</td>
+                <td align="right">94165.00</td>
+                </tr>
+                <tr>
+                <td>United States</td>
+                <td>HIC</td>
+                <td align="right">112925034.00</td>
+                <td align="right">2.58</td>
+                <td align="right">13.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">291346588.00</td>
+                <td align="right">37729383.00</td>
+                <td align="right">0.00</td>
+                <td align="right">754588.00</td>
+                <td>0.01</td>
+                <td align="right">275424.00</td>
+                <td align="right">336819.00</td>
+                </tr>
+                <tr>
+                <td>Uruguay</td>
+                <td>HIC</td>
+                <td align="right">2433597.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">8.00</td>
+                <td align="right">2.00</td>
+                <td align="right">5110554.00</td>
+                <td align="right">610711.00</td>
+                <td align="right">46861.00</td>
+                <td align="right">12214.00</td>
+                <td>0.02</td>
+                <td align="right">21562.00</td>
+                <td align="right">8037.00</td>
+                </tr>
+                <tr>
+                <td>USVI</td>
+                <td>HIC</td>
+                <td align="right">134219.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">0.00</td>
+                <td align="right">2.00</td>
+                <td align="right">281860.00</td>
+                <td align="right">33682.00</td>
+                <td align="right">11.00</td>
+                <td align="right">674.00</td>
+                <td>0.01</td>
+                <td align="right">250.00</td>
+                <td align="right">296.00</td>
+                </tr>
+                <tr>
+                <td>Vanuatu</td>
+                <td>LMI</td>
+                <td align="right">251851.00</td>
+                <td align="right">3.28</td>
+                <td align="right">9.00</td>
+                <td align="right">81.00</td>
+                <td align="right">2.00</td>
+                <td align="right">826071.00</td>
+                <td align="right">73933.00</td>
+                <td align="right">60104.00</td>
+                <td align="right">1479.00</td>
+                <td>0.25</td>
+                <td align="right">22478.00</td>
+                <td align="right">38006.00</td>
+                </tr>
+                <tr>
+                <td>Venezuela</td>
+                <td>HIC</td>
+                <td align="right">16094897.00</td>
+                <td align="right">2.10</td>
+                <td align="right">12.00</td>
+                <td align="right">5.00</td>
+                <td align="right">2.00</td>
+                <td align="right">33799284.00</td>
+                <td align="right">4039014.00</td>
+                <td align="right">199585.00</td>
+                <td align="right">80780.00</td>
+                <td>0.02</td>
+                <td align="right">102333.00</td>
+                <td align="right">154243.00</td>
+                </tr>
+                <tr>
+                <td>Vietnam</td>
+                <td>LMI</td>
+                <td align="right">55858245.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">86.00</td>
+                <td align="right">2.00</td>
+                <td align="right">44128014.00</td>
+                <td align="right">5714578.00</td>
+                <td align="right">4909870.00</td>
+                <td align="right">114292.00</td>
+                <td>0.09</td>
+                <td align="right">1833819.00</td>
+                <td align="right">4172828.00</td>
+                </tr>
+                <tr>
+                <td>Yemen</td>
+                <td>LMI</td>
+                <td align="right">6048920.00</td>
+                <td align="right">0.79</td>
+                <td align="right">13.00</td>
+                <td align="right">73.00</td>
+                <td align="right">2.00</td>
+                <td align="right">4778647.00</td>
+                <td align="right">618835.00</td>
+                <td align="right">451134.00</td>
+                <td align="right">12377.00</td>
+                <td>0.08</td>
+                <td align="right">169181.00</td>
+                <td align="right">513907.00</td>
+                </tr>
+                <tr>
+                <td> </td>
+                <td> </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td>Total</td>
+                <td align="right">31865274.00</td>
+                <td align="right">69143290.00</td>
+                </tr>
+                <tr>
+                <td> </td>
+                <td>Notes:</td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td> </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                </tr>
+                <tr>
+                <td> </td>
+                <td>1 - Based upon 2010 Gross National Income</td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td> </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                </tr>
+                <tr>
+                <td> </td>
+                <td>2 - Based upon a 50 km coastal buffer created in GIS with global population densities24</td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td> </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                </tr>
+                <tr>
+                <td> </td>
+                <td>3 - Bold data were taken directly from World Bank estimates6,21</td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td> </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                </tr>
+                <tr>
+                <td> </td>
+                <td>4 - Bold data were taken directly from World Bank estimates6,21 </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td> </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                </tr>
+                <tr>
+                <td> </td>
+                <td>5 - Using a model developed for this study (see Supplemental Information)</td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td> </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                </tr>
+                <tr>
+                <td> </td>
+                <td>6 - From U.S. national litter study22</td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td> </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                </tr>
+                <tr>
+                <td> </td>
+                <td>7 - Calculated values</td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td> </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                </tr>
+                <tr>
+                <td> </td>
+                <td>8 - Economic status changed from 2005 to 20106; waste generation rate and %plastic were assigned using average values for the 2010 economic category </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td align="right"></td>
+                <td> </td>
+                <td align="right"></td>
+                <td align="right"></td>
+                </tr>
+                </tbody></table>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WWW</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="radial.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/margins.css">
+  
+  <style>
+      /* had to hard code the background color  */
+      body {
+        background-color: #000000;
+      }
+  </style>
+
+  </head>
+
+<body>
+    <!-- NAV BAR BRAND + HAMBURGER MENU -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar navbar-brand" href="/">WORLD WIDE WASTE<img
+                        src="https://media.giphy.com/media/l4pT8l4oqdL5c7se4/giphy.gif" height="50" width="20"></a>
+            </div>
+
+            <!-- NAV BAR TABS & DROPDOWN MENU -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">Plots<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <!-- <li><a href="viz-allwaste.html">General Waste Per Country</a></li> -->
+                            <li><a href="/epa">USA Waste Management</a></li>
+                            <!-- <li><a href="viz-projection.html">2025 Global Waste Projection</a></li> -->
+                        </ul>
+                    </li>
+                    <li><a href="https://docs.google.com/presentation/d/1UjMPpoLMxP9ZjziSIWj0MYtPeGVlaCSyobzavtmKik0/edit?usp=sharing">About</a>
+                    </li>
+                    <li><a href="/data">Data</a></li>
+                </ul>
+            </div>
+    </nav>
+
+    <div id="path">
+    <svg width="960" height="960" font-family="sans-serif" font-size="10"></svg>
+    </div>
+
+</body>
+</html>

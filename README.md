@@ -1,7 +1,7 @@
 # world-wide-waste
 
 By Adriana Rubalcaba, Laura Sun, & Charlotte Acevedo <br>
-USC Viterbi/ Trilogy Education Data Bootcamp May 2019
+USC Viterbi/Trilogy Education Data Bootcamp May 2019
 
 
 *app.py requirements listed after "Project Requirements"*
@@ -18,13 +18,13 @@ USC Viterbi/ Trilogy Education Data Bootcamp May 2019
 ## Value:
 Gain insight on the movement of plastic to bring awareness to this global issue.
 
-##Research and Inspiration
+## Research and Inspiration 
 Our world is addicted to plastic. It's a global, cultural vice.
 
 Published in the journal Science in February 2015, a study conducted by a scientific working group at UC Santa Barbara’s National Center for Ecological Analysis and Synthesis (NCEAS), quantified the input of plastic waste from land into the ocean. The results: every year, 8 million metric tons of plastic end up in our oceans. It’s equivalent to five grocery bags filled with plastic for every foot of coastline in the world. In 2025, the annual input is estimated to be about twice greater, or 10 bags full of plastic per foot of coastline. So the cumulative input for 2025 would be nearly 20 times the 8 million metric tons estimate – 100 bags of plastic per foot of coastline in the world!
 
 
-##Data Sources
+## Data Sources
 PRIMARY RESOURCE:
 • www.sciencemag.org/content/347/6223/768/suppl/DC1
 

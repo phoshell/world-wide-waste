@@ -8,12 +8,12 @@ USC Viterbi/Trilogy Education Data Bootcamp May 2019
 
 ## Project Goals:
 
-• Illustrate how frequently consumers use plastic
-• Identify the toxic chemicals used to create plastic products
-• Look at plastic production, distribution, waste, recycled waste, mismanaged waste
-• Visualize the plastic industry’s fiscal value, manufacturing locations, and distribution 
-• Visualize countries that demand high frequency of single-use plastic products
-• Visualize where plastic waste accumulates by size and weight
+• Illustrate how frequently consumers use plastic <br>
+• Identify the toxic chemicals used to create plastic products <br>
+• Look at plastic production, distribution, waste, recycled waste, mismanaged waste <br>
+• Visualize the plastic industry’s fiscal value, manufacturing locations, and distribution <br>
+• Visualize countries that demand high frequency of single-use plastic products <br>
+• Visualize where plastic waste accumulates by size and weight <br>
 
 ## Value:
 Gain insight on the movement of plastic to bring awareness to this global issue.
